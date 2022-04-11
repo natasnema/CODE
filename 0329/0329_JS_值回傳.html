@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0329_JS_值回傳</title>
+</head>
+<style>
+    div {
+        width: 50px;
+        height: 50px;
+    }
+    .box1 {
+        background-color: aqua;
+    }
+
+    .box2 {
+        background-color: red;
+    }
+
+    .box3 {
+        background-color: green;
+    }
+    
+    .box4 {
+        background-color: rgb(196, 197, 255);
+    }
+
+</style>
+<body>
+
+    <p>在網頁中, 有兩種主要方式, 可以將元素上的數值傳給JS</p>
+    <p>第一種  onclick事件</p>
+
+    <div class="box1"></div>
+
+    <div class="box2" onclick="run('go')"></div>
+    <div class="box3" onclick="run('mith')"></div>
+
+    <p>第二種 data-attribute (data-*)</p>
+
+    <div class="box4" data-demo="hidoe"></div>
+
+
+    <script>
+        var box1 = document.querySelector('.box1')
+        var box2 = document.querySelector('.box2')
+        var box3 = document.querySelector('.box3')
+        var box4 = document.querySelector('.box4')
+        
+        box1.onclick = function(){
+            console.log('hi');
+        }
+        // 匿名function 的缺點只能專給這個onclick事件使用 且無法依照其他參數調整 且JS需先抓取到HTML元素
+
+        // 使用有名字的函式, 不需要有onclick事件也可以先定義
+        // 可以使用function去呼叫特性且給予不同變數
+
+        function run (X){
+            console.log(X + 'loha');
+            console.log('box4 info' + box4.dataset.demo)
+        }
+
+
+
+
+
+
+    </script>
+</body>
+</html>

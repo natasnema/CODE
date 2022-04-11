@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0310_4_a基本設定</title>
+
+    <style>
+        .logo {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+
+        .go_top_link {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            font-size: 20px;
+            background-color: yellow;
+            color: red;
+            padding: 20px;
+        }
+
+        .link {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            font-size: 20px;
+            background-color: yellow;
+            color: red;
+            padding: 20px;
+        }
+
+        /*a = 錨點設定  */
+        /* a:visited = 使用過的錨點設定 */
+        /* a:link = 未使用過的錨點設定 */
+        /* a:active = 啟動中的錨點設定 */
+        /*:hover = 滑鼠停留時設定 */
+        a {
+            color: red;
+            text-decoration: none;
+        }
+
+        a:hover {
+            background-color: rgb(255, 185, 185);
+            color: beige
+        }
+
+        a:visited {
+            color: black;
+        }
+
+        a:link{
+            color:aquamarine
+        }
+
+        a:active{
+            background-color: blueviolet;
+        }
+        #logo:hover {
+            background-color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <a href="X"> </a> 連結至X -  -->
+    <!-- X=位置 #X=id #=頁首 -->
+    <!-- <a download href="X"</a> 下載 -->
+    <!-- <a href="X" target="_blank"></a> 以新分頁開啟X  -->
+    <div id="logo" class="logo"><a href="#"></a>AAA</div>
+    <div id="go_top" class="go_top_link">
+        <a href="#">go_top</a>
+    </div>
+
+    <div>
+        <a href="http://tw.yahoo.com/">
+
+        </a>
+    </div>
+
+    <div class="link">
+        <a href="http://tw.yahoo.com/" target="_blank">
+            new yahoo</a>
+    </div>
+
+    <div>
+        <a download href="../img/mask.jpg">下載圖片</a>
+    </div>
+    <a href="#color"><span class="bottom">飄</span></a>
+
+</body>
+
+</html>

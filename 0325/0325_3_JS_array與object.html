@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    除了常見的boolean/ number/ string 外 JS中還有兩種複合屬性
+
+    array 陣列 以及 object 物件
+
+    通常而言一個變數只能存單筆資料 array 陣列 與 object 物件 可以存多種不同資料
+
+    array 陣列 使用 [X,Y,Z] 表示
+
+    陣列中抓取特定資料 使用索引值 (從0開始)
+
+    陣列中可以存放不同種類資料 也再放入一個陣列
+
+    object 物件 使用 {} 表示
+
+    物件以 key 與 value 紀錄 (key 盡量不要用Number)
+
+    物件中抓取特定資料 使用" . " (dot),  DOM就是將HTML元素模擬成物件讓使用者操作
+
+    物件內部可以再放入物件或陣列
+
+
+<script>
+    var num = 5;
+
+    var array = [10,57,66,85,21,63]
+
+    console.log(array);
+
+    console.log(array[0]);
+
+    var array_2 = [true,456,'avs-1422',[2,'3',852,74]]
+
+    console.log(array_2[2])
+
+    console.log(array_2[3][1])
+
+    var obj = { key1 : value1,
+                key2 : value2, }
+
+    console.log(obj);
+
+    var obj_2 = {
+        'plate' : ['aws-55',548,true,[332,11]],
+        'rich' :false,
+        'online' : {'see' : 232,
+                    'wak' : 778}
+    }
+
+    console.log(obj_2.plate[0]);
+</script>
+
+</body>
+</html>

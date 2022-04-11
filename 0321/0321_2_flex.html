@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0321_2_flex</title>
+    <style>
+        /* https://flexboxfroggy.com/ */
+        /*  flex 對父層下對齊指令 */
+        /*  flex-direction 控制主軸/交錯軸方向及起始點
+            指令 row(預設)/row-reverse/column/column-reverse
+            因flex-direction會改變軸向
+            需先確認flex-direction 再下justify-content/align-items */
+        /*  justify-content 控制主軸的對齊方式 
+            常用指令 flex-start/center/flex-end/space-around/space-between/space-evenly
+            (space 分散對齊) */
+        /*  align-items 控制交錯軸的對齊方式
+            常用指令 flex-start/center/flex-end/stretch(預設) */ 
+        /*  flex-wrap 自動展開至下一行
+        指令 wrap(預設)/nowrap/warp-reverse*
+        預設下flex會自動調整內部大小以符合flex
+        *align-content:in */
+        .boxA1{
+            width: 800px;
+            height: 800px;
+            background-color: cyan;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .boxB1{
+            width: 200px;
+            height: 200px;
+            background-color: darkgray;
+        }
+        .boxB1{
+            width: 200px;
+            height: 200px;
+            background-color: darkgray;
+        }
+
+
+        .boxA2{
+            width: 800px;
+            height: 800px;
+            background-color: cyan;
+            display: flex;
+            align-items: stretch;
+        }
+        .boxB2{
+            width: 200px;
+            height: 200px;
+            background-color: darkgray;
+        }
+
+     
+    </style>
+</head>
+<body>
+    <div class="boxA1">
+        <div class="boxB1"></div>
+        <div class="boxB1"></div>
+    </div>.
+    <div class="boxA2">
+        <div class="boxB2"></div>
+    </div>
+    <div class="boxC1">
+        <div class="boxC2"></div>
+    </div>
+</body>
+</html>

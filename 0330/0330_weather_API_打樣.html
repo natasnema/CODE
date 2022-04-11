@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0330_weather_API_打版</title>
+</head>
+
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 15px;
+        color: rgb(0, 115, 140)
+    }
+
+    nav {
+        width: 100%;
+        height: 70px;
+        padding: 0px 5% 0px 5%;
+    }
+
+    main {
+        padding: 3%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .obje {
+        width: 330px;
+        height: 330px;
+        position: relative;
+    }
+
+    .card {
+        width: 300px;
+        height: 300px;
+        border-radius: 5%;
+        margin: 15px;
+        position: absolute;
+        transition-duration: 0.5s;
+        background-color: rgb(217, 231, 245);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bord {
+        width: 95%;
+        height: 95%;
+    }
+
+    .city {
+        width: 100%;
+        height: 25%;
+        font-size: 50px;
+        border-radius: 10px 10px 0px 0px;
+        background-color: azure;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .type {
+        width: 100%;
+        height: 75%;
+        display: flex;
+        align-items: center;
+    }
+
+    .pict {
+        width: 50%;
+        height: 60%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .info {
+        width: 50%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .temp {
+        width: 100%;
+        height: 25%;
+        font-size: 30px;
+        background-color: rgba(255, 255, 255, 0.39);
+        border-radius: 99rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .prec {
+        width: 100%;
+        height: 25%;
+        margin: 15px 0px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .comf {
+        width: 100%;
+        height: 25%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card:hover {
+        bottom: 10px;
+        right: 10px;
+        box-shadow: inset 7px 7px rgba(230, 255, 255, 0.5), 10px 10px 5px rgb(36, 36, 36);
+    }
+
+    .card:hover .pict {
+        width: 70%;
+        height: 80%;
+    }
+
+    .card:hover .city {
+        font-size: 65px;
+    }
+
+    .umbr::before {
+        display: inline-block;
+        content: '　';
+        position: absolute;
+        left: 15px;
+        bottom: 102px;
+        background-image: url(./img/umbrella.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .w_icon {
+        width: 90%;
+        height: 90%;
+        position: relative;
+
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        -webkit-mask-size: contain;
+
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: contain;
+    }
+
+    .w_shad_icon {
+        width: 50%;
+        height: 50%;
+        position: absolute;
+        top: 100px;
+        opacity: 0.3;
+
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        -webkit-mask-size: contain;
+
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: contain;
+    }
+
+    .sun_icon {
+        background-color: rgb(255, 230, 0);
+        -webkit-mask-image: url(./img/sun.svg);
+        mask-image: url(./img/sun.svg);
+        animation: sun_ani 10s linear infinite;
+    }
+
+    @keyframes sun_ani {
+        0% {
+            transform: rotateZ(0deg);
+        }
+
+        100% {
+            transform: rotateZ(360deg);
+        }
+    }
+
+    .rain_icon {
+        background-color: rgb(59, 209, 255);
+        -webkit-mask-image: url(./img/rain.svg);
+        mask-image: url(./img/rain.svg);
+        animation: rain_ani 1s linear infinite;
+    }
+
+    @keyframes rain_ani {
+        0% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(10px);
+        }
+
+        100% {
+            transform: translateY(0px)
+        }
+    }
+
+    .cloud_icon {
+        background-color: rgb(189, 189, 189);
+        -webkit-mask-image: url(./img/cloud.svg);
+        mask-image: url(./img/cloud.svg);
+        animation: cloud_ani 1s linear infinite;
+    }
+
+    @keyframes cloud_ani {
+        0% {
+            transform: translateX(0px);
+        }
+
+        50% {
+            transform: translateX(10px);
+        }
+
+        100% {
+            transform: translateX(0px)
+        }
+    }
+
+    .wind_icon {
+        background-color: rgb(194, 255, 224);
+        -webkit-mask-image: url(./img/wind.svg);
+        mask-image: url(./img/wind.svg);
+        animation: wind_ani 1s linear infinite;
+    }
+
+    @keyframes wind_ani {
+        0% {
+            transform: rotateZ(15deg);
+        }
+
+        50% {
+            transform: rotateZ(0deg);
+        }
+
+        100% {
+            transform: rotateZ(15deg);
+        }
+    }
+
+    .hurricane_icon {
+        background-color: rgb(12, 0, 124);
+        -webkit-mask-image: url(./img/hurricane.svg);
+        mask-image: url(./img/hurricane.svg);
+        animation: hurricane_ani 10s linear infinite
+    }
+
+    @keyframes hurricane_ani {
+        0% {
+            transform: rotateZ(0deg);
+        }
+
+        100% {
+            transform: rotateZ(-360deg);
+        }
+    }
+
+
+
+    .snow_icon {
+        background-color: rgb(255, 255, 255);
+        -webkit-mask-image: url(./img/snow.svg);
+        mask-image: url(./img/snow.svg);
+        animation: snow_ani 3s linear infinite
+    }
+
+    @keyframes snow_ani {
+        0% {
+            transform: scale(100%);
+        }
+
+        50% {
+            transform: scale(120%);
+        }
+
+        100% {
+            transform: scale(100%);
+        }
+    }
+</style>
+
+<body>
+    <nav></nav>
+    <main>
+        <div class="obje">
+            <div class="card">
+                <div class="bord">
+                    <div class="city">基隆市</div>
+                    <div class="type">
+                        <div class="info">
+                            <div class="temp">20&#176C</div>
+                            <div class="prec"><span class="umbr"></span>：20%</div>
+                            <div class="comf">部分地區注意午後陣雨</div>
+                        </div>
+                        <div class="pict">
+                            <div class="w_icon rain_icon"></div>
+                            <div class="w_shad_icon rain_icon"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="obje">
+            <div class="card">
+                <div class="bord">
+                    <div class="city">宜蘭縣</div>
+                    <div class="type">
+                        <div class="info">
+                            <div class="temp">20&#176C</div>
+                            <div class="prec"><span class="umbr"></span>：5%</div>
+                            <div class="comf">溫暖適中, 適合外出遊玩</div>
+                        </div>
+                        <div class="pict">
+                            <div class="w_icon sun_icon"></div>
+                            <div class="w_shad_icon sun_icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="obje">
+            <div class="card">
+                <div class="bord">
+                    <div class="city">台北市</div>
+                    <div class="type">
+                        <div class="info">
+                            <div class="temp">20&#176C</div>
+                            <div class="prec"><span class="umbr"></span>：5%</div>
+                            <div class="comf">溫暖適中, 適合外出遊玩</div>
+                        </div>
+                        <div class="pict">
+                            <div class="w_icon cloud_icon"></div>
+                            <div class="w_shad_icon cloud_icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="obje">
+            <div class="card">
+                <div class="bord">
+                    <div class="city">新北市</div>
+                    <div class="type">
+                        <div class="info">
+                            <div class="temp">20&#176C</div>
+                            <div class="prec"><span class="umbr"></span>：5%</div>
+                            <div class="comf">溫暖適中, 適合外出遊玩</div>
+                        </div>
+                        <div class="pict">
+                            <div class="w_icon snow_icon"></div>
+                            <div class="w_shad_icon snow_icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="obje">
+            <div class="card">
+                <div class="bord">
+                    <div class="city">桃園市</div>
+                    <div class="type">
+                        <div class="info">
+                            <div class="temp">20&#176C</div>
+                            <div class="prec"><span class="umbr"></span>：5%</div>
+                            <div class="comf">溫暖適中, 適合外出遊玩</div>
+                        </div>
+                        <div class="pict">
+                            <div class="w_icon wind_icon"></div>
+                            <div class="w_shad_icon wind_icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="obje">
+            <div class="card">
+                <div class="bord">
+                    <div class="city">新竹市</div>
+                    <div class="type">
+                        <div class="info">
+                            <div class="temp">20&#176C</div>
+                            <div class="prec"><span class="umbr"></span>：5%</div>
+                            <div class="comf">溫暖適中, 適合外出遊玩</div>
+                        </div>
+                        <div class="pict">
+                            <div class="w_icon hurricane_icon"></div>
+                            <div class="w_shad_icon hurricane_icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="obje">
+            <div class="card">
+                <div class="bord">
+                    <div class="city">新竹縣</div>
+                    <div class="type">
+                        <div class="info">
+                            <div class="temp">20&#176C</div>
+                            <div class="prec"><span class="umbr"></span>：5%</div>
+                            <div class="comf">溫暖適中, 適合外出遊玩</div>
+                        </div>
+                        <div class="pict">
+                            <div class="w_icon rain_icon"></div>
+                            <div class="w_shad_icon rain_icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="obje">
+            <div class="card">
+                <div class="bord">
+                    <div class="city">苗栗縣</div>
+                    <div class="type">
+                        <div class="info">
+                            <div class="temp">20&#176C</div>
+                            <div class="prec"><span class="umbr"></span>：5%</div>
+                            <div class="comf">溫暖適中, 適合外出遊玩</div>
+                        </div>
+                        <div class="pict">
+                            <div class="w_icon rain_icon"></div>
+                            <div class="w_shad_icon rain_icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="obje">
+            <div class="card">
+                <div class="bord">
+                    <div class="city">台中市</div>
+                    <div class="type">
+                        <div class="info">
+                            <div class="temp">20&#176C</div>
+                            <div class="prec"><span class="umbr"></span>：5%</div>
+                            <div class="comf">溫暖適中, 適合外出遊玩</div>
+                        </div>
+                        <div class="pict">
+                            <div class="w_icon rain_icon"></div>
+                            <div class="w_shad_icon rain_icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="obje">
+            <div class="card">
+                <div class="bord">
+                    <div class="city">彰化縣</div>
+                    <div class="type">
+                        <div class="info">
+                            <div class="temp">20&#176C</div>
+                            <div class="prec"><span class="umbr"></span>：5%</div>
+                            <div class="comf">溫暖適中, 適合外出遊玩</div>
+                        </div>
+                        <div class="pict">
+                            <div class="w_icon rain_icon"></div>
+                            <div class="w_shad_icon rain_icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="obje">
+            <div class="card">
+                <div class="bord">
+                    <div class="city">南投縣</div>
+                    <div class="type">
+                        <div class="info">
+                            <div class="temp">20&#176C</div>
+                            <div class="prec"><span class="umbr"></span>：5%</div>
+                            <div class="comf">溫暖適中, 適合外出遊玩</div>
+                        </div>
+                        <div class="pict">
+                            <div class="w_icon rain_icon"></div>
+                            <div class="w_shad_icon rain_icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="obje">
+            <div class="card">
+                <div class="bord">
+                    <div class="city">雲林縣</div>
+                    <div class="type">
+                        <div class="info">
+                            <div class="temp">20&#176C</div>
+                            <div class="prec"><span class="umbr"></span>：5%</div>
+                            <div class="comf">溫暖適中, 適合外出遊玩</div>
+                        </div>
+                        <div class="pict">
+                            <div class="w_icon rain_icon"></div>
+                            <div class="w_shad_icon rain_icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="obje">
+            <div class="card">
+                <div class="bord">
+                    <div class="city">嘉義市</div>
+                    <div class="type">
+                        <div class="info">
+                            <div class="temp">20&#176C</div>
+                            <div class="prec"><span class="umbr"></span>：5%</div>
+                            <div class="comf">溫暖適中, 適合外出遊玩</div>
+                        </div>
+                        <div class="pict">
+                            <div class="w_icon rain_icon"></div>
+                            <div class="w_shad_icon rain_icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="obje">
+            <div class="card">
+                <div class="bord">
+                    <div class="city">嘉義縣</div>
+                    <div class="type">
+                        <div class="info">
+                            <div class="temp">20&#176C</div>
+                            <div class="prec"><span class="umbr"></span>：5%</div>
+                            <div class="comf">溫暖適中, 適合外出遊玩</div>
+                        </div>
+                        <div class="pict">
+                            <div class="w_icon rain_icon"></div>
+                            <div class="w_shad_icon rain_icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="obje">
+            <div class="card">
+                <div class="bord">
+                    <div class="city">台南市</div>
+                    <div class="type">
+                        <div class="info">
+                            <div class="temp">20&#176C</div>
+                            <div class="prec"><span class="umbr"></span>：5%</div>
+                            <div class="comf">溫暖適中, 適合外出遊玩</div>
+                        </div>
+                        <div class="pict">
+                            <div class="w_icon rain_icon"></div>
+                            <div class="w_shad_icon rain_icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="obje">
+            <div class="card">
+                <div class="bord">
+                    <div class="city">高雄市</div>
+                    <div class="type">
+                        <div class="info">
+                            <div class="temp">20&#176C</div>
+                            <div class="prec"><span class="umbr"></span>：5%</div>
+                            <div class="comf">溫暖適中, 適合外出遊玩</div>
+                        </div>
+                        <div class="pict">
+                            <div class="w_icon rain_icon"></div>
+                            <div class="w_shad_icon rain_icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="obje">
+            <div class="card">
+                <div class="bord">
+                    <div class="city">屏東縣</div>
+                    <div class="type">
+                        <div class="info">
+                            <div class="temp">20&#176C</div>
+                            <div class="prec"><span class="umbr"></span>：5%</div>
+                            <div class="comf">溫暖適中, 適合外出遊玩</div>
+                        </div>
+                        <div class="pict">
+                            <div class="w_icon rain_icon"></div>
+                            <div class="w_shad_icon rain_icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="obje">
+            <div class="card">
+                <div class="bord">
+                    <div class="city">台東縣</div>
+                    <div class="type">
+                        <div class="info">
+                            <div class="temp">20&#176C</div>
+                            <div class="prec"><span class="umbr"></span>：5%</div>
+                            <div class="comf">溫暖適中, 適合外出遊玩</div>
+                        </div>
+                        <div class="pict">
+                            <div class="w_icon rain_icon"></div>
+                            <div class="w_shad_icon rain_icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="obje">
+            <div class="card">
+                <div class="bord">
+                    <div class="city">花蓮縣</div>
+                    <div class="type">
+                        <div class="info">
+                            <div class="temp">20&#176C</div>
+                            <div class="prec"><span class="umbr"></span>：5%</div>
+                            <div class="comf">溫暖適中, 適合外出遊玩</div>
+                        </div>
+                        <div class="pict">
+                            <div class="w_icon rain_icon"></div>
+                            <div class="w_shad_icon rain_icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="obje">
+            <div class="card">
+                <div class="bord">
+                    <div class="city">澎湖縣</div>
+                    <div class="type">
+                        <div class="info">
+                            <div class="temp">20&#176C</div>
+                            <div class="prec"><span class="umbr"></span>：5%</div>
+                            <div class="comf">溫暖適中, 適合外出遊玩</div>
+                        </div>
+                        <div class="pict">
+                            <div class="w_icon hurricane_icon"></div>
+                            <div class="w_shad_icon hurricane_icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="obje">
+            <div class="card">
+                <div class="bord">
+                    <div class="city">金門縣</div>
+                    <div class="type">
+                        <div class="info">
+                            <div class="temp">20&#176C</div>
+                            <div class="prec"><span class="umbr"></span>：5%</div>
+                            <div class="comf">溫暖適中, 適合外出遊玩</div>
+                        </div>
+                        <div class="pict">
+                            <div class="w_icon rain_icon"></div>
+                            <div class="w_shad_icon rain_icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="obje">
+            <div class="card">
+                <div class="bord">
+                    <div class="city">連江縣</div>
+                    <div class="type">
+                        <div class="info">
+                            <div class="temp">20&#176C</div>
+                            <div class="prec"><span class="umbr"></span>：5%</div>
+                            <div class="comf">溫暖適中, 適合外出遊玩</div>
+                        </div>
+                        <div class="pict">
+                            <div class="w_icon hurricane_icon"></div>
+                            <div class="w_shad_icon hurricane_icon"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer></footer>
+
+
+
+    <script>
+        fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-1D4A93AD-B874-4F3C-8F48-F5DE009A592D')
+            .then(function (respones) {
+                return respones.json();
+            })
+            .then(function (myJson) {
+                console.log(myJson);
+            });
+    </script>
+
+</body>
+
+</html>

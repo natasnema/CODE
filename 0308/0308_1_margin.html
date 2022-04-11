@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0308_1</title>
+
+    <style>
+        /* 初始化瀏覽器CSS設定 */
+        body{
+            margin: 0;
+        }
+
+        .box1{
+            /* calc(原始大小 - padding(border)) */
+            width: calc(300px - 50px *2);
+            height: calc(300px - 20px *2);
+            font-size: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            color : brown;
+            background-color: yellow;
+            /* border 邊線 solid/dashed/dotted */
+            border: 10px red solid;
+            /* margin 外距 (單個數值=四周)(兩個數值=上下 左右)(四個數值=上 右 下 左) */
+            /* margin-top/bottom/left/right  auto=水平置中 */
+            margin: 20px 100px;
+            /* padding 內距 (單個數值=四周)(兩個數值=上下 左右)(四個數值=上 右 下 左) */
+            /* padding-top/bottom/left/right */
+            padding: 20px 50px;
+        }
+
+
+        .box2{
+            width: 100px;
+            height: 100px;
+            color : green;
+            background-color: hotpink;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- shift+alt+F 自動縮排 -->
+    <!-- .A>.B>.C 巢狀結構產生 -->
+
+    <div class="box1"><div class="box2"></div></div>
+    
+</body>
+
+</html>

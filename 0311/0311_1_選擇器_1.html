@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0311_1_選擇器_1</title>
+
+    <!-- link 連結 資源   -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        /*  <div> fm 區塊層級 
+            <span> 行內層級
+            <p> 單行 */
+        /* X:Y{} 虛擬類別 偽類元素
+           X:Y+Z{} +=同層第一個兄弟分支 */
+
+        .box:first-letter {
+            color: red;
+            font-size: 20px;
+        }
+
+        input:checked+label {
+            color: red;
+        }
+
+        input[type="checkbox"]:checked {
+            box-shadow: 1px 2px 5px 3px pink;
+        }
+
+        input[type="button"] {
+            width: 100px;
+            height: 30px;
+            background-color: aquamarine;
+        }
+
+        option:checked {
+            background-color: blueviolet;
+            color: brown;
+        }
+
+        div:not(#not_box) {
+
+            background-color: rgb(129, 129, 129);
+        }
+
+        div {
+            width: 300px;
+            height: 300px;
+            border: 2px black solid;
+        }
+
+        span {
+            color: red;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+        }
+
+        p {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <i class="fa fa-address-book"></i>
+
+    <input type="text">
+    <div>
+        <input type="radio" name="yn" id="yes">
+        <label for="yes">YES</label>
+        <input type="radio" name="yn" id="no">
+        <label for="no">NO</label>
+    </div>
+
+    <div>
+        <input type="checkbox" name="check1" id="check1">
+        <label for="check1">A</label>
+        <input type="checkbox" name="check2" id="check2">
+        <label for="check2">B</label>
+        <input type="button">
+    </div>
+
+    <select name="" id="">
+        <option value="1">選項1</option>
+        <option value="2">選項2</option>
+        <option value="3">選項3</option>
+        <option value="4">選項4</option>
+    </select>
+
+    <div id="not_box">OOOOO</div>
+
+    <div>aaaaa</div>
+    <div>bb<span>ccc<p>1254</p>cc</span>bbb</div>
+    <span>123</span>
+    <span>456</span>
+    <p>123456</p>
+    <div class="box">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore voluptates aliquam hic! Porro
+        dolorum ad veritatis. Neque nam fuga mollitia.</div>
+
+</body>
+
+</html>

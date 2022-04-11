@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0311_3_表格卷軸標題</title>
+    <style>
+        /*  overflow 溢出
+            overflow: scroll = 卷軸
+            overflow: hidden = 隱藏
+            overflow: visible = 顯示
+            overflow: auto = 自行調整 */
+
+        #overflowTXT {
+            width: 500px;
+            height: 100px;
+            background-color: rgb(140, 255, 255);
+            color: rgb(79, 0, 153);
+            font-size: 30px;
+            overflow: scroll;
+        }
+
+        table {
+            width: 100%;
+            border: 1px black solid;
+        }
+
+        th {
+            background-color: aqua;
+        }
+
+        td {
+            width: 25%;
+            height: 30px;
+            border: 1px black solid;
+        }
+
+        /* 奇數 = 2n+1 =odd
+           偶數 = 2n = even*/
+
+        tr:nth-child(2n+1) {
+            background-color: aquamarine;
+        }
+
+        tr:nth-child(2n) {
+            background-color: rgb(0, 129, 86);
+        }
+
+        /* td:nth-child(2n+1) {
+            background-color: rgb(136, 136, 255);
+        }
+
+        td:nth-child(2n) {
+            background-color: rgb(0, 0, 102);
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="overflowTXT">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non minima adipisci hic ducimus
+        reprehenderit eligendi deserunt est dignissimos, repudiandae, voluptatem, asperiores fuga aperiam eum soluta
+        consectetur iste similique et recusandae dolorum neque.</div>
+    <!-- <h1-h6> 標題
+         <hr> 水平線
+         <table> 表格
+         <tr> 一列
+         <td> 表格欄位
+         <th> 表頭 -->
+    <h1>h1 AA</h1>
+    <h2>h2 BB</h2>
+    <h3>h3 CC</h3>
+    <h4>h4 DD</h4>
+    <h5>h5 EE</h5>
+    <h6>h6 FF</h6>
+
+
+    TTTT
+    <hr>
+    <table>
+        <tr>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+        </tr>
+        <tr>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+        </tr>
+        <tr>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+        </tr>
+        <tr>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+        </tr>
+        <tr>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+        </tr>
+        <tr>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+        </tr>
+        <tr>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+        </tr>
+        <tr>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+        </tr>
+        <tr>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+        </tr>
+        <tr>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+        </tr>
+        <tr>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+        </tr>
+
+    </table>
+</body>
+
+</html>

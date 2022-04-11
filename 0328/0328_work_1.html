@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0328_work_1</title>
+</head>
+
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        font-size: 20px;
+    }
+
+    nav {
+        width: 100%;
+        height: 50px;
+        padding: 5px 20px 5px 20px;
+        background-color: rgb(205, 194, 255);
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .start,
+    .score,
+    .timeleft {
+        width: 200px;
+        height: 40px;
+        background-color: rgb(150, 150, 150);
+        padding: 10px;
+        border-radius: 15px;
+    }
+
+    .game {
+        width: 420px;
+        height: 420px;
+        margin: 50px auto;
+        padding: 5px;
+        background-color: rgb(202, 255, 255);
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+    }
+
+    .box {
+
+        margin: 5px;
+        border-radius: 5px;
+    }
+
+    .ans {
+        opacity: 0.6;
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="start">START</div>
+        <div class="score">SCORE:</div>
+        <div class="timeleft">TIME:</div>
+    </nav>
+    <main>
+        <div class="game">
+        </div>
+    </main>
+
+
+    <script>
+        const game = document.querySelector('.game')
+        const start = document.querySelector('.start')
+        const score = document.querySelector('.score')
+        const timeleft = document.querySelector('.timeleft')
+        var vp = 0
+
+        function startplay() {
+
+            game.innerHTML = ''
+
+            var ans = Math.floor(Math.random() * 4)
+            
+
+            var r = Math.floor(Math.random() * 256)
+            var g = Math.floor(Math.random() * 256)
+            var b = Math.floor(Math.random() * 256)
+
+            for (let A = 0; A < 4; A++) {
+                if (A == ans) {
+                    game.innerHTML += '<div class="box ans" style="width: calc(50% - 10px); height: calc(50% - 10px); background-color: rgb(' + r + ',' + g + ',' + b + ');"></div>'
+                } else {
+                    game.innerHTML += '<div class="box" style="width: calc(50% - 10px); height: calc(50% - 10px); background-color: rgb(' + r + ',' + g + ',' + b + ');"></div>'
+                }
+            }
+
+            const boxs = document.querySelectorAll('.box')
+
+            for (let A = 0; A < 4; A++) {
+                if (A == ans) {
+                    boxs[A].onclick = function () {
+                        vp++;
+                        score.innerHTML = 'SCORE:' + vp;
+                        startplay()
+                    }
+                } else {
+                    boxs[A].onclick = function () {
+                        alert('FALSE!!!');
+                    }
+                }
+            }
+        }
+
+        start.onclick = function () {
+
+            var time = 10;
+            vp = 0;
+            timeleft.innerHTML = 'TIME:' + time;
+            var timer = setInterval(function () {
+                time--;
+                timeleft.innerHTML = 'TIME:' + time;
+                if (time == 0) {
+                    clearInterval(timer);
+                    game.innerHTML = ''
+                    alert("TIME'S UP" + vp)
+                }
+            }, 1000)
+            startplay()
+        }
+    </script>
+</body>
+
+</html>

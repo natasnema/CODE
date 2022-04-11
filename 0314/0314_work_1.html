@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0314_work_1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* 自動扣除padding & border */
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: red;
+            text-decoration: none;
+        }
+
+        .all {
+            width: 1600px;
+            margin: auto;
+            background-color: rgb(205, 255, 255);
+        }
+
+        .nav {
+            width: 1600px;
+            height: 100px;
+            background-color: rgb(0, 159, 165);
+            position: fixed;
+            z-index: 9;
+        }
+
+        .nav>menu_1>ul,
+        .nav>menu_2>ul {
+            list-style: none;
+        }
+
+        .logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 999em;
+            background-image: url(../img/mask.jpg);
+            background-size: cover;
+            background-position: center;
+            margin: 5px 5px 0 5px;
+            float: left;
+        }
+
+        .btn_1 {
+            width: 100px;
+            height: 60px;
+            background-color: cyan;
+            line-height: 50px;
+            float: left;
+            margin-left: 20px;
+            margin-top: 5px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .btn_2 {
+            width: 100px;
+            height: 60px;
+            background-color: cyan;
+            line-height: 50px;
+            float: right;
+            margin-right: 20px;
+            margin-top: 5px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .icon {
+            width: 100px;
+            height: 60px;
+            float: right;
+            margin-right: 20px;
+            margin-top: 20px;
+            font-size: 30px;
+            text-align: center;
+
+        }
+
+        .section_1 {
+            width: 1600px;
+            height: 1000px;
+
+        }
+
+        .img_1 {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .img_1 img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .txt_1 {
+            font-size: 30px;
+            color: rgb(2, 2, 2);
+            position: absolute;
+            left: 700px;
+            top: 500px;
+        }
+
+        .section_2 {
+            width: 1600px;
+            height: 400px;
+            background-color: darkgray;
+            margin: auto;
+
+        }
+
+        .img_2 {
+            width: 300px;
+            height: 200px;
+            float: left;
+            margin: 100px;
+            position: relative;
+
+        }
+
+        .img_3 {
+            width: 300px;
+            height: 200px;
+            float: left;
+            margin: 100px;
+            position: relative;
+        }
+
+        .img_4 {
+            width: 300px;
+            height: 200px;
+            float: left;
+            margin: 100px;
+            position: relative;
+        }
+
+
+        .img_2 img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .img_3 img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .img_4 img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .txt_2 {
+            font-size: 30px;
+            position: absolute;
+            left: -30px;
+            top: calc(50% - 15px);
+        }
+
+        .txt_3 {
+            font-size: 30px;
+            position: absolute;
+            left: calc(50% - 30px);
+            top: calc(50% - 15px);
+        }
+
+        .txt_4 {
+            font-size: 30px;
+            position: absolute;
+            right: -30px;
+            top: calc(50% - 15px);
+        }
+
+        .cs {
+            width: 300px;
+            font-size: 30px;
+            position: relative;
+            float: left;
+            clear: left;
+            margin-top: 30px;
+            margin-left: 250px;
+        }
+
+        .section_3 {
+            width: 1600px;
+            height: 270px;
+            background-color: rgb(166, 255, 255);
+        }
+
+        .img_5 {
+            width: 390px;
+            height: 250px;
+            float: left;
+            margin-top: 10px;
+
+        }
+
+        .img_6 {
+            width: 390px;
+            height: 250px;
+            float: left;
+            margin-top: 10px;
+            margin-left: 15px;
+        }
+
+        .img_7 {
+            width: 390px;
+            height: 250px;
+            float: left;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        .img_8 {
+            width: 390px;
+            height: 250px;
+            float: left;
+            margin-top: 10px;
+            margin-left: 15px;
+        }
+
+        .img_5 img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .img_6 img {
+            width: 100%;
+            height: 100%
+        }
+
+        .img_7 img {
+            width: 100%;
+            height: 100%
+        }
+
+        .img_8 img {
+            width: 100%;
+            height: 100%
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all">
+        <header>
+            <div class="nav">
+                <div class="logo"></div>
+                <menu_1>
+                    <ul>
+                        <li><a href="#1" id="opt_1" class="btn_1">pot1</a></li>
+                        <li><a href="#2" id="opt_2" class="btn_1">opt2</a></li>
+                        <li><a href="#3" id="opt_3" class="btn_1">opt3</a></li>
+                        <li><a href="#4" id="opt_4" class="btn_1">opt4</a></li>
+                        <li><a href="#5" id="opt_5" class="btn_1">opt5</a></li>
+                    </ul>
+                </menu_1>
+
+                <menu_1>
+                    <ul>
+
+
+                        <li><a href="#9" id="opt_i1" class="icon"><i class="fa fa-arrows-h"></i></a></li>
+                        <li><a href="#9" id="opt_9" class="btn_2">opt9</a></li>
+                        <li><a href="#9" id="opt_i2" class="icon"><i class="fa fa-arrows-v"></i></a></li>
+                        <li><a href="#8" id="opt_8" class="btn_2">opt8</a></li>
+                        <li><a href="#7" id="opt_7" class="btn_2">opt7</a></li>
+                        <li><a href="#6" id="opt_6" class="btn_2">opt6</a></li>
+
+                    </ul>
+                </menu_1>
+            </div class="nav">
+        </header>
+
+        <main>
+            <div class="section_1">
+                <div class="img_1">
+                    <img src="../img/bg.jpg">
+                </div>
+                <div class="txt_1">無無明<p>　亦無無明盡</p>
+                </div>
+
+            </div>
+            <div class="section_2">
+
+                <div class="img_2">
+                    <img src="../img/bg2.jpg">
+                    <div class="txt_2">名色</div>
+                </div>
+                <div class="img_3">
+                    <img src="../img/bg3.jpg">
+                    <div class="txt_3">六入</div>
+                </div>
+                <div class="img_4">
+                    <img src="../img/bg4.jpg">
+                    <div class="txt_4">老死</div>
+
+
+                    <div class="cs">
+                        <a href="http://youtube.com/" target="_blank">customer service</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="section_3">
+                <div class="img_5">
+                    <img src="../img/bg5.jpg">
+                </div>
+                <div class="img_6">
+                    <img src="../img/bg6.jpg">
+                </div>
+                <div class="img_7">
+                    <img src="../img/bg7.jpg">
+                </div>
+                <div class="img_8">
+                    <img src="../img/bg8.jpg">
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+
+</body>
+
+</html>

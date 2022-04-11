@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>digi_pack_index_1</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
+    <style>
+        * {
+            transition: .3s;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+        }
+
+        /* --------------------size-------------------- */
+
+        .fs875 {
+            font-size: .875rem;
+        }
+
+        .fs1 {
+            font-size: 1rem;
+        }
+
+        .fsraw {
+            font-size: 1.875rem;
+        }
+
+        @media (max-width:640px) {
+            .fsraw {
+                font-size: 1.5rem;
+            }
+        }
+
+        .py6 {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+
+        /* --------------------nav-------------------- */
+
+        .navbarmw {
+            max-width: 1280px;
+            margin: auto;
+        }
+
+        .logo-1 {
+            height: 92px;
+            padding: 16px;
+        }
+
+        /* --------------------main-------------------- */
+
+        .container1 {
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 6rem 1.25rem;
+        }
+
+        @media (min-width: 640px) {
+            .container1 {
+                max-width: 640px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container1 {
+                max-width: 768px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container1 {
+                max-width: 1024px;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .container1 {
+                max-width: 1280px;
+            }
+        }
+
+        .icon_s {
+            width: 5rem;
+            height: 5rem;
+            background-color: rgb(224, 231, 255);
+            border-radius: 999rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .icon_l {
+            width: 8rem;
+            height: 8rem;
+            background-color: rgb(224, 231, 255);
+            border-radius: 999rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .learn {
+            color: rgb(99, 102, 241);
+        }
+
+        .btn1 {
+            width: 122px;
+            height: 44px;
+        }
+
+        .line_a {
+            position: relative;
+        }
+
+        .line_b {
+            width: 60px;
+            height: 4px;
+            border-radius: 999rem;
+            background-color: rgb(91, 91, 255);
+            position: absolute;
+            top: 20px;
+            left: calc(50% - 30px);
+        }
+
+        /* --------------------swiper-------------------- */
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbarmw font-weight-bolder navbar navbar-expand-lg navbar-light bg-light py-0 px-3">
+            <a class="navbar-brand p-0 m-0 ml-3" href="#"><img class="logo-1" src="../img/logo-1.svg" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item px-4 py-2 ml-3">
+                        <a class="nav-link p-0" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item px-4 py-2 ml-3">
+                        <a class="nav-link p-0" href="#">Portfolio</a>
+                    </li>
+                    <li class="nav-item px-4 py-2 ml-3">
+                        <a class="nav-link p-0" href="#">About</a>
+                    </li>
+                    <li class="nav-item px-4 py-2 ml-3">
+                        <a class="nav-link p-0" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="../../img/bg.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="../../img/bg2.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="../../img/bg3.jpg" alt=""></div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="container1">
+
+            <div class="row px-0">
+                <div class="col-12 text-center mb-3 fsraw">Raw Denim Heirloom Man Braid</div>
+                <div class="col-12 col-lg-9 col-xl-6 font-weight-normal text-center m-auto">Blue bottle crucifix vinyl
+                    post-ironic four
+                    dollar toast vegan taxidermy.
+                    Gastropub indxgo juice poutine, ramps microdosing banh mi pug.</div>
+            </div>
+
+            <div class="py-5 px-4 line_a">
+                <div class="line_b"></div>
+            </div>
+
+            <div class="row p-0 justify-content-between">
+
+                <div class="col-12 p-3 col-md-4">
+                    <div class="icon_s mx-auto mb-4"><img src="../img/shooting-1.svg" alt=""></div>
+                    <h5 class="text-center mb-3">Shooting Stars</h5>
+                    <div class="text-center mb-3">Blue bottle crucifix vinyl post-ironic four dollar toast vegan
+                        taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug VHS try-hard.</div>
+                    <div class="learn text-center">Learn More <img src="../img/arrow-1.svg" alt=""></div>
+                </div>
+
+                <div class="col-12 p-3 col-md-4">
+                    <div class="icon_s mx-auto mb-4"><img src="../img/catalyzer-1.svg" alt=""></div>
+                    <h5 class="text-center mb-3">The Catalyzer</h5>
+                    <div class="text-center mb-3">Blue bottle crucifix vinyl post-ironic four dollar toast vegan
+                        taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug VHS try-hard.</div>
+                    <div class="learn text-center">Learn More <img src="../img/arrow-1.svg" alt=""></div>
+                </div>
+
+                <div class="col-12 p-3 col-md-4">
+                    <div class="icon_s mx-auto mb-4"><img src="../img/neptune-1.svg" alt=""></div>
+                    <h5 class="text-center mb-3">Neptune</h5>
+                    <div class="text-center mb-3">Blue bottle crucifix vinyl post-ironic four dollar toast vegan
+                        taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug VHS try-hard.</div>
+                    <div class="learn text-center">Learn More <img src="../img/arrow-1.svg" alt=""></div>
+                </div>
+
+            </div>
+
+            <button type="button" class="btn btn1 btn-primary d-block mt-5 mx-auto">Button</button>
+
+        </div>
+
+        <div class="container1">
+            <div class="row">
+                <div class="col-4 fsraw">Master Cleanse Reliac Heirloom</div>
+                <div class="col-8">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile
+                    poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies
+                    heirloom.</div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="row p-0 m-0">
+                        <div class="col-6">500 x 300</div>
+                        <div class="col-6">501 x 301</div>
+                    </div>
+                    <div class="col-12">600 x 360</div>
+                </div>
+                <div class="col-6">
+                    <div class="col-12">601 x 361</div>
+                    <div class="row p-0 m-0">
+                        <div class="col-6">502 x 302</div>
+                        <div class="col-6"> 503 x 303</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+
+
+
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

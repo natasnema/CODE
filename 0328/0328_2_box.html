@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0328_2_box</title>
+</head>
+<style>
+    *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+.box_big {
+    width: 100px;
+    height:200px;
+    background-color: rgb(255, 188, 240);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.box_little {
+    width: 10px;
+    height: 10px;
+    margin: 5px;
+    background-color: rgb(176, 255, 255);
+}
+</style>
+
+<body>
+    
+    <div class="box_big">
+        
+    </div>
+
+<script>
+var big = document.querySelector('.box_big')
+var lit = document.querySelector('.box_little')
+
+// big.onclick= function(){
+    for (let box = 0 ; box < 50 ; box++)
+    big.innerHTML += '<div class="box_little"></div>'
+// }
+</script>
+</body>
+</html>

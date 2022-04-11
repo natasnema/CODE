@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0325_2_JS_if與else</title>
+</head>
+<body>
+<img src="../img/icon_fb.png">
+
+    <script>
+        var img = document.querySelector('img')
+        // console.log(img);檢查元素
+
+        img.onclick= function(){
+            // console.log(img);檢查點擊事件
+            // if (
+            //     img.src == '../img/icon_fb.png'){
+            //         img.src = '../img/icon_ig.png'
+            // }
+            // else{
+            //     img.src = '../img/icon_fb.png'}
+        
+            // console.log(img.src == '../img/icon_fb.png');檢查if判斷
+                if (img.src.includes('icon_fb')) {
+                    img.src = '../img/icon_ig.png'}
+                    else {
+                    if (img.src.includes('icon_ig')) {
+                        img.src = '../img/icon_yt.png'}
+                        else {
+                            img.src = '../img/icon_fb.png'
+                        }
+                }
+        }
+        console.log(img)
+    </script>
+</body>
+</html>

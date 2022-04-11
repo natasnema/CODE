@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0312_1_元素剖析</title>
+    <style>
+        .sp1 {
+            display: inline-block;
+            border: 1px red solid;
+        }
+    </style>
+</head>
+
+<body>
+    <diV>
+        <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started">HTML</a>
+    </diV>
+    <div>
+        <h1>元素剖析</h1>
+        <img
+            src="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started/grumpy-cat-small.png">
+    </div>
+    <p>開始<strong>標籤</strong></p>
+    <p><em>內容</em></p>
+    <p>結束<b>標記</b></p>
+    <p><span class="sp1">元素</span>是開始標籤，後跟內容，最後是結束標籤</p>
+
+    <div>
+        <h2>區塊元素與行內元素</h2>
+        <em>first</em><em>second</em><em>third</em>
+        <p>fourth</p>
+        <p>fifth</p>
+        <p>sixth</p>
+    </div>
+    <div>
+        <h2>空元素(empty elements)</h2>
+        <!-- 空元素 = 只有開始標籤沒有結束標籤 -->
+        <!-- 利用圖片連結 -->
+        <a href="http://youtube.com"><img
+                src="https://raw.githubusercontent.com/mdn/beginner-html-site/gh-pages/images/firefox-icon.png"></a>
+
+    </div>
+    <div>
+        <h2>屬性(attributes)</h2>
+        <!-- src type等 -->
+        <img src="https://mdn.mozillademos.org/files/9345/grumpy-cat-attribute-small.png>">
+    </div>
+
+    <div>
+        <h2>布林屬性(boolean attributes)</h2>
+        <input type="text">
+        <input type="text" disabled>
+        <h2>忘記加屬性質的引號</h2>
+        <h3>有時候會出錯</h3>
+        <a href="http://youtube.com" title="you tube">YOUTUBE</a>
+        <a href=http://youtube.comtitle=you tube>YOUTUBE</a>
+    </div>
+    <div>
+        <h2>單引號or雙引號</h2>
+        <a href="http://youtube.com">YOUTUBE</a>
+        <a href='http://youtube.com'>YOUTUBE</a>
+        <a href='http://youtube.com' title="Isn't">YOUTUBE</a>
+        <!-- <a href='http://youtube.com' title='Isn' t>YOUTUBE</a> -->
+    </div>
+    <div>
+        <h2>實體參照(HTML entity references)</h2>
+        <!-- 欲表現標籤文字 使用實體標籤 -->
+
+        <p>In HTML, you define a paragraph using the
+        <p> element.</p>
+
+        <p>In HTML, you define a paragraph using the &lt;p&gt; element.</p>
+        <p>In HTML, <br>you define <br>a paragraph using the
+            element.</p>
+        <!-- 標籤未結束 -->
+        <h1>AAA</p>
+            <p>BBB</p>
+            <h1>CCC</h1>
+            <p>DDD</p>
+            <!-- 實際顯示 -->
+            <pre>
+                無無明
+                亦無無明盡<br>
+                無老死
+                亦無老死盡
+            </pre>
+            <p>上標/下標</p>
+            <p>X<sup>3</sup>=X3次方</p>
+            <p>H<sub>2</sub>O=水</p>
+    </div>
+    <div>
+        <h2>CSS或程式命名規則</h2>
+        <pre>
+            1.以符號區分:
+              只能以"-"或"_"區分
+              body-mesh或body_mesh
+            2.大小寫區分(駝峰式 pascal case)
+              bodyMesh
+            3.特殊專用詞大寫
+              XML或HTTP
+        </pre>
+    </div>
+    <div>
+        <h2>HTML5命名規則</h2>
+        <p>建議全部小寫</p>
+    </div>
+    
+
+</body>
+
+</html>

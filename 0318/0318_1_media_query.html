@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Media Query  */
+        /* max-width:X = 畫面寬小於X時執行 通常從大版型寫到小版型 */
+        /* min-width:X = 畫面寬大於X時執行 通常從小版型寫到大版型*/
+        /* 單個網頁中通常只使用其中一種 */
+        /* 兩者特性於CSS撰寫時不同 */
+
+        .box {
+            background-color: rgb(255, 0, 0);
+            height: 600px;
+            width: 600px;
+            float: right;
+        }
+
+        @media (max-width:1899px) {
+            .box {
+                background-color: rgb(204, 0, 255);
+                height: 450px;
+                width: 450px;
+                float: right;
+            }
+        }
+
+        @media (max-width:1399px) {
+            .box {
+                background-color: rgb(162, 0, 255);
+                height: 450px;
+                width: 450px;
+                margin: auto;
+                float: none;
+            }
+        } 
+
+        @media (max-width:899px) {
+            .box {
+                background-color: rgb(0, 4, 252);
+                height: 450px;
+                width: 20px;
+                margin: 0px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>

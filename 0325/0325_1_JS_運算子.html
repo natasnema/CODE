@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0325_1_JS_運算子</title>
+</head>
+<body>
+    <script>
+// JS 運算式 與 運算子
+// https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Expressions_and_Operators
+
+// 在電腦中 布林值(true false) 往往會以( 1  0 ) 來代替
+// console中 文字顏色白色為字串 其他為布林值或數值
+
+var A = false
+
+console.log( A + '1' );
+// false1
+console.log( A + 1 );
+// 1
+console.log( A );
+// false
+console.log(3 == 1 + 2);
+// true
+console.log('dad' != 'dad');
+// false
+console.log(3 == '3');
+// true == 會嘗試轉換型態
+console.log(true == 1);
+// true
+console.log(3 === '3');
+// false === 也會比較型態是否相同
+console.log(true === 1);
+// false
+console.log(!true);
+// false
+console.log(3 > 2 && 3 < 5);
+// true
+console.log(3 > 2 && 3 > 5);
+// false
+console.log(3 > 2 || 3 < 5);
+// true
+console.log(1 >2 || 3 < 5);
+// true
+
+// JS中 字串相加與 數字相加的運算子皆是使用 + 
+// 寫算式時須特別注意
+console.log( 3 + 3 );
+// 6
+console.log('3' + '3');
+// 33
+
+
+// 費曼學習法
+
+
+    </script>
+</body>
+</html>

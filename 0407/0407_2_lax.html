@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0407_2_lax</title>
+
+    <!-- https://github.com/alexfoxy/lax.js -->
+
+    <style>
+        body {
+            height: 2000px;
+        }
+
+        .box1 {
+            position: absolute;
+            top: 500px;
+            color: rgb(0, 97, 64);
+            font-size: 100px;
+        }
+
+        .box2 {
+            position: fixed;
+            top: 600px;
+            left: 200px;
+            color: rgb(29, 0, 97);
+            font-size: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div
+        class="box1 lax lax_preset_seesaw:140:20 lax_preset_fadeInOut:168:0.6 lax_preset_scaleInOut:128:0.1 lax_preset_zigzag:200:466 lax_preset_hueRotate:1194:360 lax_preset_spin:1194:360 lax_preset_flipX:1194:360 lax_preset_flipY:1194:360 lax_preset_blurInOut:204:20">
+        NATAS</div>
+
+    <div class="box2 selector">NEMA</div>
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/lax.js"></script>
+    <script>
+        window.onload = function () {
+            lax.init()
+
+            // Add a driver that we use to control our animations
+            lax.addDriver('scrollY', function () {
+                return window.scrollY
+            })
+
+            // Add animation bindings to elements
+            lax.addElements('.box2', {
+                scrollY: {
+                    translateX: [
+                        [0, 500, 1500],
+                        [500, 250, 500],
+                    ],
+                    translateY: [
+                        [0, 600, 1500],
+                        [0, -200, -700],
+                    ],
+                    rotate: [
+                        [0, 1500],
+                        [0, 270]
+                    ],
+                    scale: [
+                        [0, 1500],
+                        [0.5, 1.5]
+                    ],
+                    blur: [
+                        [0, 1500],
+                        [0, 10]
+                    ]
+
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

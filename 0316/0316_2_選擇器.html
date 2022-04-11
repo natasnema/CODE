@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0316_2_選擇器</title>
+    <style>
+        /* https://developer.mozilla.org/zh-TW/docs/Glossary/CSS_Selector */
+        /* class選擇器 同時具有多個class的選法(不分順序)(不要加空格) */
+        /* !important權重最高 */
+        /* 標籤裡淺藍色字=屬性 */
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet!important;
+            margin-bottom: 20px;
+        }
+
+        /* 選B */
+        .box.box-1.box-B {
+            background-color: red;
+        }
+
+        /* 選D */
+        .box.box-B {
+            background-color: cornflowerblue;
+        }
+
+        /* 屬性選擇器 */
+        input[type="text"]{
+            background-color: cyan;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">A</div>
+    <div class="box box-1 box-B box-A">B</div>
+    <div class="box box-1">C</div>
+    <div class="box box-B">D</div>
+    <input type="text">
+    <input type="checkbox">
+</body>
+
+</html>

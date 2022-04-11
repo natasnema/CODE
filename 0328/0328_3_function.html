@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0328_3_function</title>
+</head>
+<body>
+    
+
+
+<Script>
+    // JS中 常有要重複執行且次數不定的程式
+    // 使用 function(函式) 將該程式包起來預備, 直到被呼叫再啟動
+
+    // 函式宣告結構
+    // function 函式名稱(參數){
+    //     執行內容
+    // }
+
+    // 宣告函式 並未執行該函式 要執行式需再呼叫該函式
+    function getup() {
+        console.log('關鬧鐘'); 
+        console.log('起床');
+        console.log('洗漱');
+        console.log('更衣');    
+        console.log('吃早餐');
+        console.log('看新聞');
+        console.log('滑FB'); 
+        console.log('吃早餐');
+        console.log('看新聞');
+        console.log('出門');         
+    }
+
+    getup()
+
+    // 除此之外也可藉由不同條件執行不同內容, 以參數設定
+    function getup(time) {
+        console.log('關鬧鐘'); 
+        console.log('起床');
+        console.log('洗漱');
+        console.log('更衣');  
+        if (time < 8){
+        console.log('吃早餐');
+        console.log('看新聞');
+        console.log('滑FB'); 
+    }  
+        console.log('出門');          
+    }
+
+    getup(7)
+
+</Script>
+</body>
+</html>

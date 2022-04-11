@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <div></div>
+    </main>
+    <script>
+        fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-1D4A93AD-B874-4F3C-8F48-F5DE009A592D')
+            .then(function (respones) {
+                return respones.json();
+            })
+            .then(function (myJson) {
+                console.log(myJson);
+                const main = document.querySelector('main')
+
+                //         for (let index = 0; index < myJson.records.location.length; index++) {
+                //             main.innerHTML += `
+                //    <div>
+                //     ${myJson.records.location[index].locationName}
+                //     </div>
+                //    `;}
+                myJson.records.location.forEach(A => {
+                    main.innerHTML +=`
+                    <div>
+                     ${A.locationName}
+                    </div>
+                    `                   
+                });
+
+            });
+
+    </script>
+</body>
+
+</html>

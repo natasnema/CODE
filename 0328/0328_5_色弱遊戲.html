@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0328_5_色弱遊戲</title>
+</head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+
+    body{
+            padding-top: 100px;
+        }
+
+    main {
+        top:50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .game {
+        width: 250px;
+        height: 250px;
+        padding: 10px;
+        background-color: rgba(0, 255, 255, 0);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .box {
+        width: 100px;
+        height: 100px;
+        margin: 5px;
+    }
+
+    .ans {
+        width: 100px;
+        height: 100px;
+        margin: 5px;
+        opacity: 0.5;
+    }
+
+    nav {
+        width: 100%;
+        height: 50px;
+        background-color: rgb(184, 247, 255);
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        position: fixed;
+        left: 0px;
+        top: 0px;
+
+    }
+
+    nav span,
+    nav button {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        width: 100px;
+        height: 40px;
+        background-color: beige;
+    }
+</style>
+
+<body>
+    <nav>
+        <button id="start">START</button>
+        <span id="score">VP</span>
+        <span id="timeleft">TIME:</span>
+    </nav>
+    <main>
+        <div class="game">
+        </div>
+    </main>
+
+
+    <script>
+        // 設定遊戲變數
+        const game = document.querySelector('.game')
+        const start = document.querySelector('#start')
+        const score = document.querySelector('#score')
+        const timeleft = document.querySelector('#timeleft')
+        var vp = 0
+
+        // 設定遊戲函式
+        function startgame() {
+
+
+            // 產生亂數
+            var ans = Math.floor(Math.random() * 4)
+            game.innerHTML = ''
+
+            // 使用inline style 設定顏色
+            // 隨機顏色參數
+            var r = Math.floor(Math.random() * 256)
+            var g = Math.floor(Math.random() * 256)
+            var b = Math.floor(Math.random() * 256)
+
+            // 產生方塊
+            for (let index = 0; index < 4; index++) {
+                if (index == ans) {
+
+                    // 正確方塊變淡
+                    game.innerHTML += '<div class="ans box" style="background-color: rgb(' + r + ',' + g + ',' + b + ');"></div>'
+                } else {
+
+                    // 一般方塊不變
+                    game.innerHTML += '<div class="box" style="background-color: rgb(' + r + ',' + g + ',' + b + ');"></div>'
+                }
+            }
+
+            // box加上點擊事件
+            const boxs = document.querySelectorAll('.box')
+            for (let index = 0; index < 4; index++) {
+
+                if (index == ans) {
+
+                    // 顯示正確
+                    boxs[index].onclick = function () {
+                        console.log('正確');
+                        vp++;
+                        score.innerHTML = 'SCORE:' + vp
+
+                        // 重新到下一題
+                        startgame()
+                    }
+                } else {
+
+                    // 顯示不正確
+                    boxs[index].onclick = function () {
+                        console.log('不正確');
+                    }
+                }
+            }
+        }
+
+        start.onclick = function () {
+            // 開始後重置計時與分數
+
+            var time = 5;
+            vp = 0;
+            timeleft.innerHTML = '剩餘時間:' + time
+            score.innerHTML = '你的分數:' + vp
+
+            // 設定計時器
+            var timer = setInterval(function () {
+                time--;
+                timeleft.innerHTML = '剩餘時間:' + time
+                if (time == 0) {
+                    clearInterval(timer)
+                    game.innerHTML = ''
+                    alert('GAME OVER ! YOUR VP' + vp)
+                }
+            }, 1000)
+
+            // 開始遊戲
+            startgame()
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

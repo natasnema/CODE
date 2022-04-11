@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather</title>
+    <link rel="stylesheet" href="./0331_van_weather.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav>Taiwan Weather Forecast
+        <div onclick="areaclicked('全部')" class="area taiwan">全部</div>
+        <div onclick="areaclicked('北部')" class="area north">北部</div>
+        <div onclick="areaclicked('西部')" class="area west">西部</div>
+        <div onclick="areaclicked('南部')" class="area south">南部</div>
+        <div onclick="areaclicked('東部')" class="area east">東部</div>
+        <div onclick="areaclicked('離島')" class="area island">離島</div>
+        <div class="searchbox">
+            <input id='search' type="search" value="" placeholder="請輸入縣市">
+            <button onclick="searchcity()">搜尋</button>
+        </div>
+    </nav>
+    <main>
+    </main>
+
+    <script>
+        const url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-1D4A93AD-B874-4F3C-8F48-F5DE009A592D'
+
+        var allAreaWeather
+
+        const main = document.querySelector('main')
+
+        fetch(url).then(function (response) {
+            return response.json()
+        })
+            .then(function (weather) {
+
+                allAreaWeather = weather;
+
+                allAreaWeather.records.location.forEach((city, index) => {
+
+                    var weacon
+
+                    if (city.weatherElement[0].time[0].parameter.parameterValue < 3) {
+                        weacon = ' sun_icon'
+                    } else if (city.weatherElement[0].time[0].parameter.parameterValue < 8) {
+                        weacon = ' cloud_icon'
+                    } else {
+                        weacon = ' rain_icon'
+                    }
+
+                    main.innerHTML += `
+                    <div class="cityname" data-name="${city.locationName}">
+                        <div class="card">
+                            <p class="city">${city.locationName}</p>
+                            <p class="temp">${city.weatherElement[2].time[0].parameter.parameterName}~${city.weatherElement[4].time[0].parameter.parameterName}°C</p>
+                            <p class="weather">${city.weatherElement[0].time[0].parameter.parameterName}</p>
+                            <p class="feel">${city.weatherElement[3].time[0].parameter.parameterName}</p>
+                            <div class="w_icon ${weacon}"></div>
+                        </div>
+                    </div>
+                    `
+                });
+            })
+
+        function areaclicked(area) {
+
+            main.innerHTML = ''
+
+            var target
+
+            var weacon
+
+            var citys = allAreaWeather.records;
+
+            if (area == '北部') {
+                target = [1, 3, 4, 5, 7, 13, 18]
+            } else if (area == '西部') {
+                target = [8, 9, 11, 14, 20]
+            } else if (area == '南部') {
+                target = [0, 2, 6, 15, 17]
+            } else if (area == '東部') {
+                target = [10, 12]
+            } else if (area == '離島') {
+                target = [16, 19, 21]
+            } else {
+                target = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+            }
+
+            target.forEach(tar => {
+
+                if (citys.location[tar].weatherElement[0].time[0].parameter.parameterValue < 3) {
+                    weacon = ' sun_icon'
+                } else if (citys.location[tar].weatherElement[0].time[0].parameter.parameterValue < 8) {
+                    weacon = ' cloud_icon'
+                } else {
+                    weacon = ' rain_icon'
+                }
+
+                main.innerHTML += `
+                        <div class="cityname" data-name="${citys.location[tar].locationName}">
+                        <div class="card">
+                            <p class="city">${citys.location[tar].locationName}</p>
+                            <p class="temp">${citys.location[tar].weatherElement[2].time[0].parameter.parameterName}~${citys.location[tar].weatherElement[4].time[0].parameter.parameterName}°C</p>
+                            <p class="weather">${citys.location[tar].weatherElement[0].time[0].parameter.parameterName}</p>
+                            <p class="feel">${citys.location[tar].weatherElement[3].time[0].parameter.parameterName}</p>
+                            <div class="w_icon ${weacon}"></div>
+                        </div>
+                    </div>
+                        `
+            });
+        }
+
+        function searchcity() {
+
+            var keyword = document.querySelector('#search').value;
+
+            var allcitys = document.querySelectorAll('.cityname')
+
+            allcitys.forEach(card => {
+                // (card.dataset.name == keyword)                        
+                if (card.dataset.name.includes(keyword)) {
+                    card.style.display = 'block'
+                } else {
+                    card.style.display = 'none'
+                }
+            })
+        }
+
+
+
+    </script>
+</body>
+
+</html>

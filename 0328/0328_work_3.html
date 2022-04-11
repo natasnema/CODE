@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0328_work_3</title>
+</head>
+
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        font-size: 20px;
+    }
+
+    nav {
+        width: 100%;
+        height: 50px;
+        padding: 5px 20px 5px 20px;
+        background-color: rgb(205, 194, 255);
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .start,
+    .score,
+    .timeleft {
+        width: 200px;
+        height: 40px;
+        background-color: rgb(150, 150, 150);
+        padding: 10px;
+        border-radius: 15px;
+    }
+
+    .game {
+        width: 430px;
+        height: 430px;
+        margin: 50px auto;
+        padding: 5px;
+        background-color: rgb(202, 255, 255);
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+    }
+
+    .box {
+        margin: 5px;
+        border-radius: 5px;
+    }
+
+    .ans {
+        opacity: 0.6;
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="start">START</div>
+        <div class="score">SCORE:</div>
+        <div class="timeleft">TIME:</div>
+    </nav>
+    <main>
+        <div class="game" style="width:430px; height:430px">
+        </div>
+    </main>
+
+
+    <script>
+        const game = document.querySelector('.game');
+        const start = document.querySelector('.start');
+        const score = document.querySelector('.score');
+        const timeleft = document.querySelector('.timeleft');
+
+        var vp = 0;
+
+
+        function startplay() {
+
+            game.innerHTML = '';
+
+            var ans = Math.floor(Math.random() * 4);
+
+
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+            var a = 200
+            // if (score < 3) {
+                for (let A = 0; A < 4; A++) {
+                    if (A == ans) {
+                        game.innerHTML += '<div class="box ans" style="width: calc(50% - 10px); height: calc(50% - 10px); background-color: rgba(' + r + ',' + g + ',' + b + ', 150);"></div>'
+                    } else {
+                        game.innerHTML += '<div class="box" style="width: calc(50% - 10px); height: calc(50% - 10px); background-color: rgba(' + r + ',' + g + ',' + b + ', 255);"></div>'
+                    }
+                }
+
+                const boxs = document.querySelectorAll('.box')
+
+                for (let A = 0; A < 4; A++) {
+                    if (A == ans) {
+                        boxs[A].onclick = function () {
+                            vp++;
+                            score.innerHTML = 'SCORE:' + vp;
+                            startplay()
+                        }
+                    } else {
+                        boxs[A].onclick = function () {
+                            alert('FALSE!!!');
+                            game.innerHTML = '';
+
+                        }
+                    }
+                }
+            } // else {
+        //         for (let A = 0; A < 9; A++)
+        //             if (A == ans) {
+        //                 game.innerHTML += '<div class="box ans" style="width: calc(30% - 3px); height: calc(30% - 3px); background-color: rgba(' + r + ',' + g + ',' + b + ', 180);"></div>'
+        //             } else {
+        //                 game.innerHTML += '<div class="box" style="width: calc(30% - 3px); height: calc(30% - 3px); background-color: rgba(' + r + ',' + g + ',' + b + ', 255);"></div>'
+        //             }
+        //     }
+        // }
+        // for (let A = 0; A < 9; A++) {
+        //     if (A == ans) {
+        //         boxs[A].onclick = function () {
+        //             vp++;
+        //             score.innerHTML = 'SCORE:' + vp;
+        //             startplay()
+        //         }
+        //     } else {
+        //         boxs[A].onclick = function () {
+        //             alert('FALSE!!!');
+        //             game.innerHTML = '';
+
+        //         }
+        //     }
+        // }
+
+        start.onclick = function () {
+            var time = 10;
+            timeleft.innerHTML = 'TIME:' + time;
+            var timer = setInterval(function () {
+                time--;
+                timeleft.innerHTML = 'TIME:' + time;
+                if (time == 0) {
+                    clearInterval(timer);
+                    game.innerHTML = ''
+                    alert("TIME'S UP" + vp)
+                }
+            }, 1000)
+            startplay()
+        }
+
+    </script>
+</body>
+
+</html>

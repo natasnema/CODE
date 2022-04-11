@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0312_3_嵌入應用</title>
+</head>
+
+<body>
+    <!-- 嵌入應用 -->
+    <!-- <iframe width="X" height="Y"> 內嵌網頁 設定大小 -->
+    <h1>多媒體應用</h1>
+    <h2>YOUTUBE</h2>
+
+    <!-- YT音樂無法使用 -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/OEfeZbCtnOg" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/SJW5EQKzYns" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+
+    <h1>GOOGLE</h1>
+
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3639.9008732201687!2d120.64340121498951!3d24.175208984381786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346916219d726c1f%3A0x27e0cef7372b4119!2z5qGM5LiK5pyJ5oiy546p56m66ZaTKOahjOmBiuenn-WAn--9nExhcnDvvZznj77loLTmoYzpgYrmlZnlrbjvvZzlr4blrqTvvZzmoYzpgYrosqnllK7luILpm4bvvZzmnIPorbDloLTlnLDnp5_lgJ8p!5e0!3m2!1szh-TW!2stw!4v1647226292983!5m2!1szh-TW!2stw"
+        width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+    <h1>音效</h1>
+
+    <audio controls>
+        <!-- <audio controls (autoplay/muted)> -->
+        <source src="../img/electric_chain.mp3" type=" audio/mpeg">
+        your browser does not supprot the audio element
+    </audio>
+
+    <h1>外掛</h1>
+
+    <object width="100%" height="500px" data="./0314_3.html"></object>
+
+    <h1>影片</h1>
+
+    <video width="600px" height="400px" controls>
+        <source src="../img/暴食_Mr.Gluttony.mov">
+        your browser does not supprot the audio element
+    </video>
+    <pre>
+        ?X&Y&Z....
+        controls=0 不顯示面板
+        mute=1 靜音
+        loop=0 撥一次
+        loop=1 無限循環
+        ?playlist=X=1
+        <!-- 循環要有清單 -->
+        
+    </pre>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/_mQ40lxzce8?loop=1&mute=1&controls=0">
+    </iframe>
+</body>
+
+</html>

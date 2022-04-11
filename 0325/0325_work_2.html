@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0325_work_2</title>
+
+    <style>
+        .box {
+            position: relative;
+            width: 28px;
+            height: 28px;
+        }
+        .boxL {
+            position: absolute;
+            width: 14px;
+            height: 28px;
+            /* background-color: black; */
+        }
+        .boxR {
+            position: absolute;
+            width: 14px;
+            height: 28px;
+            /* background-color: white; */
+            left:14px;
+        }
+        .box img {
+            position: absolute;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div class="box">
+        <img src="../img/icon_fb.png">
+        <div class="boxL"></div>
+        <div class="boxR"></div>
+    </div>
+
+
+    <script>
+        var img = document.querySelector('img')
+        var L = document.querySelector('.boxL')
+        var R = document.querySelector('.boxR')
+
+        L.onclick= function(){
+                if (img.src.includes('icon_fb')) {
+                    img.src = '../img/icon_ig.png'}
+                else if (img.src.includes('icon_ig')) {
+                        img.src = '../img/icon_yt.png'}
+                    else {
+                            img.src = '../img/icon_fb.png'
+                        }
+                }
+        
+        R.onclick= function(){
+                if (img.src.includes('icon_fb')) {
+                    img.src = '../img/icon_yt.png'}
+                else if (img.src.includes('icon_yt')) {
+                        img.src = '../img/icon_ig.png'}
+                    else {
+                            img.src = '../img/icon_fb.png'
+                        }
+                }
+
+        console.log(img)
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0309_1_文字基本設定</title>
+    <!-- google font 連結 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            margin: 0;
+        }
+        /*  文字屬性均會繼承(影響子層)
+            google font查詢
+            font-size: 大小
+            font-family: 字型
+            font-weight: 粗細
+            font-style: 型式
+            line-height: 行高(若無單位則為倍數)
+            text-align: 對齊
+            letter-spacing: 字距
+            text-indent: 縮排
+             */
+        .txt1 {
+            font-size: 15px;
+            font-family: 'Roboto', sans-serif;
+            color: rgb(15, 15, 15);
+            line-height: 2;
+            text-align: justify;
+            letter-spacing: 2px;
+            text-indent: 100px;
+
+        }
+
+        /* 字首放大 分開撰寫 */
+        .txt1:first-letter {
+            font-size: 30px;
+        }
+
+
+        .txt2 {
+            font-size: 15px;
+            font-family: 'Roboto', sans-serif;
+            color: rgb(255, 0, 0);
+            font-weight: bold;
+            font-style: italic;
+            line-height: 2;
+            text-align: justify;
+        }
+
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: rgb(178, 247, 232);
+            line-height: 300px;
+            text-align: center;
+            font-size: 30px;
+        }
+        .box1{
+            width: 100%;
+            height: 500px;
+            background-color: black;
+            position: relative;
+            
+        }
+        .box2{
+            width: 100%;
+            height: 50px;
+            background-color: red;
+            position: fixed;
+            position: sticky;
+            top: 0;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 假文產生器lorem(X=字數 無=隨機) -->
+    <!-- <span>行內層級 -->
+    <div class="txt1">無無名亦無Lorem ipsum dolor, sit amet consectetur elit.
+        <span class="txt2">C'est La Vie</span>
+        aperiam tempora
+        <span class=txt2>Vida Loca</span>
+        necessitatibus quas, illo porro?
+        <span class="txt2">NEMA</span>
+        Quos, repellat error.
+    </div>
+    <div class="box">中</div>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+
+</html>

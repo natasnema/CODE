@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0316_work_3</title>
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        .all {
+            width: 768px ;
+            height: 1024px;
+            background-color: tomato;
+            margin: 0 auto;
+        }
+
+        .nav {
+            width: 768px;
+            height: 100px;
+            background-color: rgb(170, 170, 170);
+            margin: 0 auto;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background-image: url(../img/mask.jpg);
+            background-size: cover;
+            background-position: center;
+            margin: 10px;
+            margin-left: 35px;
+            float: left;
+        }
+
+        .nav_menu {
+            margin: 0 auto;
+            width: 450px;
+            height: 50px;
+            float: right;
+        }
+
+        .nav_menu_link {
+            width: 100px;
+            height: 50px;
+            margin: 0 auto;
+            background-color: cornflowerblue;
+            text-align: center;
+            font-size: 30px;
+            line-height: 50px;
+            margin-right: 10px;
+            margin-top:25px ;
+            border-radius: 20px;
+            float: right;
+        }
+
+        .container {
+            width:768px;
+            height: 924px;
+            background-color: honeydew;
+            padding: calc((1024px - 924px) / 2) 34px;
+            margin: 0 auto;
+
+        }
+
+        .content {
+            width: 700px;
+            height: 800px;
+            background-color: honeydew;
+            margin: 0 auto;
+            
+        }
+
+        .content_img {
+            height: calc(50% - 5px);
+            background-size: cover;
+            background-position: center;
+
+        }
+
+        .content_img:hover {
+            transform: scale(1.1);
+            border-radius: 5px;
+        }
+
+        .img_X {
+            width: 100%;
+            background-image: url(../img/bg8.JPG);
+            margin-bottom:10px
+        }
+
+        .img_Y {
+            width: calc(50% - 5px);
+            background-image: url(../img/bg7.jpg);
+            float: left;
+            margin-right:10px;
+        }
+
+        .img_Z {
+            width: calc(50% - 5px);
+            float: left;
+            background-image: url(../img/bg6.jpg);
+        }
+
+        .nav_menu a {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+        }
+
+        .nav_menu a:visited {
+            color: rgb(255, 246, 126);
+        }
+
+        .nav_menu_link:hover {
+            transform: scale(1.1);
+            background-color: teal;
+
+        }
+
+        .nav_menu_link:active {
+            transform: scale(1.2);
+            background-color: rgb(0, 78, 78);
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div= class="all">
+        <div class="nav">
+            <div class="nav_menu_btn"></div>
+            <div class="logo"></div>
+            <div class="nav_menu">
+                <a href="http://youtube.com/" target="_blank">
+                    <div class="nav_menu_link linK_1">youtube</div>
+                </a>
+                <a href="https://vimeo.com//" target="_blank">
+                    <div class="nav_menu_link linK_2">vimeo</div>
+                </a>
+                <a href="http://google.com/" target="_blank">
+                    <div class="nav_menu_link linK_3">google</div>
+                </a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="content">
+                <div class="content_img img_X"></div>
+                <div class="content_img img_Y"></div>
+                <div class="content_img img_Z"></div>
+            </div>
+        </div>
+        </div>
+</body>
+
+</html>

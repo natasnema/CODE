@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            font-family: 'Segoe UI', SegoeUI, 'Microsoft JhengHei', 微軟正黑體, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            border-bottom: 1px solid rgba(0, 0, 0, 0);
+        }
+
+        .functions {
+            width: 400px;
+            height: 100%;
+            padding-right: 8px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            font-size: 13px;
+
+        }
+
+        nav .functions .all {
+            width: 145px;
+            height: 48px;
+
+            display: flex;
+            align-items: center;
+
+        }
+
+        .menu_all ul li a:hover {
+            border-bottom: 1px solid black;
+        }
+
+        .menu_check {
+            display: none;
+        }
+
+        .menuall {
+            display: none;
+            position: relative;
+        }
+
+        .menu_all {
+            width: 1230px;
+            height: 350px;
+            background-color: rgb(240, 240, 240);
+            border: 1px 0px 1px 1px rgb(230, 230, 230) solid;
+            font-size: 13px;
+
+            position: absolute;
+            top: 25px;
+            left: -1085px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+
+        .menu_all ul {
+            margin: 20px;
+            list-style: none;
+        }
+
+        .menu_all ul li {
+            margin: 20px;
+        }
+
+        li:nth-child(1) {
+            font-weight: bold;
+        }
+
+        .see_map {
+            width: 1230px;
+            height: 40px;
+            background-color: rgb(211, 211, 211);
+            border-bottom: 1px black solid;
+            bottom: 0px;
+            text-align: center;
+            line-height: 3;
+            position: absolute;
+            top: calc(350px + 25px);
+            left: -1085px;
+        }
+
+        .menu_check:checked~.menuall {
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="functions">
+        <input type="checkbox" id="checkbox01" class="menu_check">
+        <label for="checkbox01" class="all">
+            所有 Microsoft</label>
+        <div class="menuall">
+            <div class="menu_all">
+                <ul>
+                    <li>軟體</li>
+                    <li><a href="#">Windows 應用程式</a></li>
+                    <li><a href="#">OneDrive</a></li>
+                    <li><a href="#">Outlook</a></li>
+                    <li><a href="#">Skype</a></li>
+                    <li><a href="#">OneNote</a></li>
+                    <li><a href="#">Microsoft Teams</a></li>
+                </ul>
+                <ul>
+                    <li>個人電腦和設備</li>
+                    <li><a href="#">選購 Xbox</a></li>
+                    <li><a href="#">電腦配件</a></li>
+                </ul>
+                <ul>
+                    <li>娛樂</li>
+                    <li><a href="#">Xbox Game Pass Ultimate</a></li>
+                    <li><a href="#">Xbox Live Gold</a></li>
+                    <li><a href="#">Xbox 與遊戲</a></li>
+                    <li><a href="#">電腦遊戲</a></li>
+                    <li><a href="#">Windows 遊戲</a></li>
+                </ul>
+                <ul>
+                    <li>商務適用</li>
+                    <li><a href="#">Microsoft Cloud</a></li>
+                    <li><a href="#">
+                            Microsoft Azure
+                        </a></li>
+                    <li><a href="#">Microsoft Dynamics 365</a></li>
+                    <li><a href="#">Microsoft 365</a></li>
+                    <li><a href="#">Windows 365</a></li>
+                    <li><a href="#">Microsoft Industry</a></li>
+                    <li><a href="#">選購商務版</a></li>
+                </ul>
+                <ul>
+                    <li>Developer & IT</li>
+                    <li><a href="#">.NET</a></li>
+                    <li><a href="#">Visual Studio</a></li>
+                    <li><a href="#">Windows Server</a></li>
+                    <li><a href="#">開發 Windows 應用程式</a></li>
+                    <li><a href="#">文件</a></li>
+                    <li><a href="#">Power Platform</a></li>
+                    <li><a href="#">Power Apps</a></li>
+                </ul>
+                <ul>
+                    <li>其他</li>
+                    <li><a href="#">Microsoft Rewards</a></li>
+                    <li><a href="#">免費下載與安全性</a></li>
+                    <li><a href="#">教育</a></li>
+                    <li><a href="#">禮品卡</a></li>
+                    <li><a href="#">Licensing</a></li>
+                </ul>
+            </div>
+            <div class="see_map">檢視網站地圖〉</div>
+        </div>
+    </div>
+</body>
+
+</html>

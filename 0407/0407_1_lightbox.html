@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0407_1_lightbox</title>
+    <link rel="stylesheet" href="./css/lightbox.css">
+    <!-- https://lokeshdhakar.com/projects/lightbox2/ -->
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        .simg {
+            width: 150px;
+            height: 100px;
+            border-radius: 5px;
+        }
+
+        .lightboxOverlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            background-color: rgb(0, 43, 70);
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+            opacity: 0.5;
+            display: none;
+        }
+
+        span.lb-number {
+            display: none !important ;
+        }
+
+        span.lb-caption {
+            font-size: 15px;
+            color: black;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <!-- 單一照片 -->
+    <div class="s">
+        <a href="../img/bg8.JPG" data-lightbox="single" data-title="停">
+            <img class="simg" src="../img/bg8.JPG">
+        </a>
+    </div>
+
+    <div class="book">
+        <a href="../img/bg7.jpg" data-lightbox="book" data-title="線">
+            <img class="simg" src="../img/bg7.JPG">
+        </a>
+        <a href="../img/bg6.jpg" data-lightbox="book" data-title="空">
+            <img class="simg" src="../img/bg6.JPG">
+        </a>
+        <a href="../img/bg5.jpg" data-lightbox="book" data-title="流">
+            <img class="simg" src="../img/bg5.JPG">
+        </a>
+        <a href="../img/bg4.jpg" data-lightbox="book" data-title="朦">
+            <img class="simg" src="../img/bg4.JPG">
+        </a>
+    </div>
+
+
+
+
+
+
+    <script src="./lightbox-plus-jquery.js"></script>
+    <script>
+        lightbox.option({
+            'resizeDuration': 600,
+            'wrapAround': true
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0307_2_float</title>
+<style>
+
+/* flaot=漂浮
+float: left 
+float: right
+clear=結束上方漂浮狀態
+clear: left 
+clear:right
+clear:both  */
+
+    .box_a{
+        width: 300px;
+        height: 300px;
+        background-color: red;
+        float: left;
+    }
+
+    .box_b{
+        width: 500px;
+        height: 500px;
+        background-color: blue;
+        float: right;
+    }
+
+    .box_c{
+        width: 400px;
+        height: 400px;
+        background-color: green;
+        /* float: right; */
+        clear: both ;
+    }
+</style>
+
+
+</head>
+
+
+<body>
+    
+<div class="box_a"></div>
+<div class="box_b"></div>
+<div class="box_c"></div>
+
+</body>
+</html>

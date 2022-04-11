@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0325_work_1</title>
+<style>
+    .box {
+        width: 200px;
+        height: 200px;
+    }
+</style>
+
+</head>
+<body>
+    <div class="box"></div>
+    
+    <script>
+
+        var box = document.querySelector('.box')
+        var score = +prompt("請輸入分數");
+
+        if (score >= 90){
+            box.innerHTML = '甲等'
+        }else if (score >= 80){
+            box.innerHTML = '乙等'
+        }else if (score >= 70){
+            box.innerHTML = '丙等'
+        }else if (score >= 60){
+            box.innerHTML = '丁等'
+        }else{
+            box.innerHTML = '不及格'
+        }
+
+        
+        // if (score >= 90){
+        //     box.innerHTML = '甲等'
+        // }else{
+        //     if (score >= 80){
+        //         box.innerHTML = '乙等'
+        //     }else{
+        //         if (score >= 70){
+        //             box.innerHTML = '丙等'
+        //         }else{
+        //             if (score >= 60){
+        //                 box.innerHTML = '丁等'
+        //             }else{
+        //                 box.innerHTML = '不及格'
+        //             }
+        //         }
+        //     }       
+        // }
+        // if (score >= 90){
+        //     box.innerHTML = '甲等'
+
+        // }
+
+
+        // if (score >= 80){
+        //     box.innerHTML = '乙等'
+        // }
+
+        
+
+        // if (score >= 70){
+        //     box.innerHTML = '丙等'
+        // }
+
+        
+
+        // if (score >= 60){
+        //     box.innerHTML = '丁等'
+        // }
+
+
+        // if (score <= 60){
+        //     box.innerHTML = '不合格'
+        // }
+
+
+    </script>
+</body>
+</html>

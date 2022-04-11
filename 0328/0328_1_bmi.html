@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0328_1_bmi</title>
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        main {
+            width: 100%;
+            height: 100vh;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bmi_input {
+            width: 600px;
+            height: 300px;
+            padding: 50px;
+            margin-bottom: 50px;
+            border-radius: 10px;
+            border: 1px solid black;
+            background-color: rgb(196, 243, 255);
+            font-size: 24px;
+        }
+
+        .bmi_input .input {
+            margin-bottom: 40px;
+        }
+
+        .bmi_input .input input {
+            height: 40px;
+        }
+
+        .bmi_input .btns {
+            width: 200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: auto;
+        }
+
+        .bmi_input .btns button {
+            width: 60px;
+            height: 40px;
+
+        }
+
+        .bmi_output {
+            width: 600px;
+            padding-left: 50px;
+
+            border-radius: 10px;
+            border: 1px solid black;
+            background-color: rgb(196, 243, 255);
+
+            display: flex;
+            flex-direction: column;
+
+            font-size: 24px;
+
+            opacity: 0;
+            transition: 2s;
+        }
+
+        .bmi_output.act {
+            opacity: 1;
+        }
+    </style>
+</head>
+<main>
+    <div class="bmi_input">
+        <div class="input">
+            <span>身高(公分):</span>
+            <input type="text" id="height">
+        </div>
+        <div class="input">
+            <span>體重(公斤):</span>
+            <input type="text" id="weight">
+        </div>
+        <div class="btns">
+            <button id="cal">計算BMI</button>
+            <button id="reset">重設</button>
+        </div>
+    </div>
+    <div class="bmi_output">
+        <div id="bmi_result">我的BMI是:</div>
+        <div id="bmi_status">我的狀態是:</div>
+        <div id="bmi_suggestion">建議:</div>
+    </div>
+</main>
+
+
+<body>
+    <script>
+
+        // 輸入元素
+        const height = document.querySelector('#height')
+        const weight = document.querySelector('#weight')
+
+        // 輸出元素
+        const bmi_result = document.querySelector('#bmi_result')
+        const bmi_status = document.querySelector('#bmi_status')
+        const bmi_suggestion = document.querySelector('#bmi_suggestion')
+
+        // 按鈕
+        const cal = document.querySelector('#cal')
+        const reset = document.querySelector('#reset')
+
+        // 輸出
+        const output = document.querySelector('.bmi_output')
+
+        // 建立點擊事件
+        cal.onclick = function () {
+            
+            // 抓取的值
+            let input_h = height.value
+            let input_w = weight.value
+
+            // 檢查輸入值
+            if (isNaN(input_h) || isNaN(input_w)){
+                alert('請輸入數字')
+                height.value = ''
+                weight.value = ''
+                output.classList.remove('act')
+            } else if (input_h <= 0 || input_w <= 0){
+                alert('請輸入正確數字')
+                height.value = ''
+                weight.value = ''
+                output.classList.remove('act')
+            } else if (input_h > 350 || input_w > 1000){
+                alert('請輸入正確數字')
+                height.value = ''
+                weight.value = ''
+                output.classList.remove('act')
+            } else if (input_h.trim().length == 0 || input_w.trim().length == 0) {
+                alert('請輸入正確數字')
+                height.value = ''
+                weight.value = ''
+                output.classList.remove('act')
+            } else {
+                //如果上述狀況都沒有 代表輸入的數值很正確
+                // 計算BMI 
+                let bmi = (input_w / ((input_h / 100) ** 2)).toFixed(1)
+                let status = ''
+                let suggestion = ''
+
+                if (bmi < 18.5) {
+                    status = '過輕'
+                    suggestion = '增重'
+                } else if (bmi < 24) {
+                    status = '正常'
+                    suggestion = '保持體態'
+                } else if (bmi < 27) {
+                    status = '過重'
+                    suggestion = '請定期運動'
+                } else if (bmi < 30) {
+                    status = '輕度肥胖'
+                    suggestion = '請定期運動'
+                } else if (bmi < 35){
+                    status = '中度肥胖'
+                    suggestion = '多運動控制飲食'
+                } else {
+                    status = '重度肥胖'
+                    suggestion = '更多運動更多控制飲食'
+                }
+                // 輸出BMI
+                bmi_result.innerHTML = '我的BMI是:' + bmi
+                bmi_status.innerHTML = '我的狀態是:' + status
+                bmi_suggestion.innerHTML = '建議:' + suggestion
+                output.classList.add('act')
+            }
+            
+            // 重置
+            reset.onclick = function(){
+                height.value = ''
+                weight.value = ''
+                bmi_result.innerHTML =''
+                bmi_status.innerHTML = ''
+                bmi_suggestion.innerHTML = ''
+                output.classList.remove('act')
+            }
+
+        }
+    </script>
+</body>
+
+</html>

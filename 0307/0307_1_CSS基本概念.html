@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0307_1_CSS基本概念</title>
+
+<style>
+
+/* px=pixel */
+/* color=文字顏色 */
+/* background-color=背景色 */
+/* width=寬 */
+/* height=高 */
+
+    .co-a{
+        color:yellow;
+        }
+    .co-b{
+        color: red;
+        }
+    .co-c{
+        color: black;
+        }
+    .bc-a{
+        width: 100px;
+        height: 30px;
+        background-color: blue
+        }
+    .bc-b{
+        width: 100px;
+        height: 30px;
+        background-color:red
+        }
+    .bc-c{
+        width: 100px;
+        height: 30px;
+        background-color: yellow;
+        }
+    
+    .box-a{
+        width:100px ;
+        height:100px ;
+        background-color: tomato;
+        }
+
+    .box-b{
+        width:200px ;
+        height:200px ;
+        background-color:skyblue;
+        }
+    
+    .box-c{
+        width:300px ;
+        height:300px ;
+        background-color:red;
+        }
+
+    .box-d{
+        width:300px ;
+        height:300px ;
+        background-color:blue;
+        }
+
+    .box-e{
+        width:100px ;
+        height:100px ;
+        background-color:purple;
+        }
+
+    .tc-a{
+        font-family:Arial, Helvetica, sans-serif;
+        font-size: 40px;
+        color: blue;
+        }
+
+    .tc-b{
+        font-family:Arial, Helvetica, sans-serif;
+        font-size: 40px;
+        color: yellow;
+        }
+
+    .tc-c{
+        font-family:Arial, Helvetica, sans-serif;
+        font-size: 40px;
+        color: red;
+        }
+
+    .tc-d{
+        font-family:Arial, Helvetica, sans-serif;
+        font-size: 40px;
+        color: black;
+        }
+/* #X{}
+#Y{} */
+
+</style>
+
+</head>
+
+<body>
+
+    <!-- #(id).(class).(class)tab -->
+
+    <div class="co-c bc-a">
+        11111
+    </div>
+
+    <div class="co-a bc-b">
+        22222
+    </div>
+
+    <div class="co-c bc-a">
+        33333
+    </div>
+        
+    <div class="co-a bc-b">
+        44444
+    </div>
+
+    <div class="co-b bc-c">
+        55555
+    </div>
+
+    <!-- .(class)*X -->
+
+    <!-- .(class)+.(class) -->
+
+    <!-- .(class)*X+.(class)*X -->
+
+    <div class="box-a tc-a">
+        A 
+    </div>
+
+    <div class="box-a tc-b">
+        B 
+    </div>
+
+    <div class="box-a tc-c">
+        C 
+    </div>
+
+    <div class="box-b tc-c">
+        D 
+    </div>
+
+    <div class="box-b tc-d">
+        E 
+    </div>
+
+    <div class="box-c tc-b">
+        F 
+    </div>
+
+    <div class="box-d tc-c">
+        G
+    </div>
+
+    <div class="box-e tc-d">
+        H 
+    </div>
+
+
+</body>
+
+</html>

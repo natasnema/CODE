@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0315_work_1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            font-family: 'Helvetica', '微軟正黑體';
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        header {
+            background-color: aqua;
+            width: 84%;
+            height: 80px;
+            margin: 0 auto;
+        }
+
+        nav {
+            background-color: bisque;
+            width: 100%;
+            height: 80px;
+        }
+
+        .logo {
+            float: left;
+        }
+
+        .logo>img {
+            width: 70px;
+            height: 70px;
+            margin-top: 5px;
+            margin-left: 10px;
+        }
+
+        .menu_1 {
+            float: left;
+        }
+
+        .menu_2 {
+            float: right;
+        }
+
+        .menu_1>ul,
+        .menu_2>ul {
+            list-style: none;
+        }
+
+        .menu_1>ul>li,
+        .menu_2>ul>li {
+            float: left;
+            margin-right: 30px;
+        }
+
+        main {
+            width: 84%;
+            margin: 0 auto;
+        }
+
+        section>div>img {
+            width: 100%;
+            height: 700px;
+        }
+
+        .section_1 {
+            position: relative;
+            height: 700px;
+        }
+
+        .title {
+            position: absolute;
+            top: 150px;
+            left: 300px;
+        }
+
+        .title h1 {
+            margin-bottom: -25px;
+        }
+
+        .title p {
+            margin-left: 50px;
+        }
+
+        .section_2_A:nth-child(1),
+        .section_2_A:nth-child(3) {
+            height: 50px;
+            background-color: plum;
+        }
+
+        .section_2_A:nth-child(2) {
+            height: 150px;
+            background-color: forestgreen
+        }
+
+        .section_3 {
+            height: 400px;
+        }
+
+        .section_3_A img {
+            width: 320px;
+            height: 400px;
+        }
+
+        .section_3_A:not(:nth-last-of-type(1)) {
+            float: left;
+            margin-right: 48px;
+        }
+
+        .section_3_A:nth-last-child(1) {
+            float: right;
+        }
+
+        .section_2_img_all {
+            width: 400px;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        .section_2_img_all img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .section_2_img_all div {
+            float: left;
+            margin-right: 50px;
+            transform: translateY(25%);
+            position: relative;
+        }
+
+        .section_2_img_all div:nth-last-child(1) {
+            float: right;
+            margin-right: 0px;
+        }
+
+        .section_2_img_all div p {
+
+            position: absolute;
+            top: 20%
+        }
+
+        .section_2_img_1 p {
+            left: -20%;
+        }
+
+        .section_2_img_2 p {
+            left: 30%;
+        }
+
+        .section_2_img_3 p {
+            right: -20%;
+        }
+
+        .cs {
+            float: right;
+            margin-right: 30px;
+            line-height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="../img/mask.jpg">
+            </div>
+            <div class="menu_1">
+                <ul>
+                    <li><a href="#">opt1</a></li>
+                    <li><a href="#">opt2</a></li>
+                    <li><a href="#">opt3</a></li>
+                    <li><a href="#">opt4</a></li>
+                    <li><a href="#">opt5</a></li>
+                </ul>
+            </div>
+            <div class="menu_2">
+                <ul>
+
+                    <li><a href="#">opt6</a></li>
+                    <li><a href="#">opt7</a></li>
+                    <li><a href="#">opt8</a></li>
+                    <li><a href="#"><a href="#" id="opt_i1" class="icon"><i class="fa fa-arrows-h"></i></a></li>
+                    <li><a href="#">opt9</a></li>
+                    <li><a href="#"><a href="#" id="opt_i2" class="icon"><i class="fa fa-arrows-v"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="section_1">
+            <div>
+                <img src="../img/bg.jpg">
+            </div>
+            <div class="title">
+                <h1>無無明</h1>
+                <p>亦無無明盡</p>
+            </div>
+        </section>
+        <section class="section_2">
+            <div class="section_2_A"></div>
+            <div class="section_2_A">
+                <div class="section_2_img_all">
+                    <div class="section_2_img_1"><img src="../img/bg2.jpg">
+                        <p>名色</p>
+                    </div>
+                    <div class="section_2_img_2"><img src="../img/bg3.jpg">
+                        <p>六入</p>
+                    </div>
+                    <div class="section_2_img_3"><img src="../img/bg4.jpg">
+                        <p>老死</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="section_2_A">
+                <span class="cs"><a href="mailto:natasnema@gmail.com" traget="_blank">Customer Service </a></span>
+            </div>
+        </section>
+        <section class="section_3">
+            <div class="section_3_A"><img src="../img/bg5.jpg"></div>
+            <div class="section_3_A"><img src="../img/bg6.jpg"></div>
+            <div class="section_3_A"><img src="../img/bg7.jpg"></div>
+            <div class="section_3_A"><img src="../img/bg8.jpg"></div>
+        </section>
+    </main>
+</body>
+
+</html>

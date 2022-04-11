@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0324_1_JS</title>
+
+    <style>
+        /* CSS 位置 */
+        .boxA {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+
+        .boxB {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(0, 158, 158);
+        }
+        .yellow {
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+<div class="boxA">ACE</div>
+<img src="../img/bg.jpg" id="img1">
+
+<div class="boxB">BASE</div>
+<!-- <img src="../img/bg2.jpg" alt=""> -->
+
+    <script>
+        // JS 位置 body 結尾標籤上方
+        // JavaScript 是一種程式語言
+
+
+        // IMPORTANT : WHO? WHEN? WHAT?
+        // 在JS當中取得HTML元素的方法 : var A = document.querySelector('CSS 選擇器')
+
+            // console.log(document.querySelector('.boxA'))
+
+        // 程式中"=" : 將= 右側的值 賦予左側
+        // JS中除錯或驗算 使用 console.log() 將()中的結果輸出到console中 
+            // var a = 5
+            // var b = 6
+            // var c = a + b
+
+            // var d = c + a
+
+            // console.log(c)
+
+            // console.log(d)
+
+        // JS中常見變數型態 : boolean布林值, number數字, string字串
+        // string字串 以 " 或 ' 表示, 代表一串文字
+        // number數字 不需要符號即可直接使用, 代表數字 可做數學運算
+        // boolean布林值 不需要符號即可直接使用 True 或 False 在條件判斷使用
+            // var boolean = true
+            // var string = 'true'
+
+            // console.log(string)
+
+            // console.log('string')
+
+            // var A = 'Hello World!'
+
+            // console.log(A);
+            
+            // console.log('Hello world!')
+
+        // JS命名規範 英文 數字 _ , 不可以數字開頭, 不可使用保留字(指令)
+        // 只要有錯誤就全部無法執行
+
+
+        // JS中 三種變數宣告方式 const, var, let
+        // const 常數, 宣告後不能再被修改
+        // var 廣域變數 let 區域變數 宣告後可再賦予新的值
+
+            // const pi = 3.14
+
+            // var n = 60
+            // n = 70
+
+            // console.log(n)
+
+        // 物件文件模型 DOM 
+
+        // 判斷式 if 做邏輯判斷用, 依據條件, 執行或不執行部分程式
+        
+        // if (判斷條件){
+        //     執行事件
+        // }
+
+            var score = 60
+
+            if (score >= 60){
+                console.log('及格')
+            }
+
+            if (score < 60){
+                console.log('不及格')
+            }
+
+        // 點擊事件
+        
+        // document.querySelector('.boxA').onclick = function(){
+        // 當元素被點擊時, 這裡寫要做的事
+            //  console.log('Hello World!')
+            //  }
+
+        // 變數使用
+
+        // 換字
+            // var box = document.querySelector('.boxA')
+
+            // box.onclick = function(){
+            //     box.innerHTML="Hello World!"
+            // }
+
+        // 換圖
+            // var img = document.querySelector('#img1')
+
+            // img.onclick = function(){
+            //     img.src = '../img/bg3.png'
+            // }
+
+        var boxB = document.querySelector('.boxB')
+
+            // boxB.onclick = function(){
+            //     boxB.className += ' yellow'
+            // }
+
+            // boxB.onclick = function(){
+            //     boxB.classList.add('yellow')
+            // }
+
+        var img2 = document.querySelector('img')
+
+        boxB.onclick = function(){
+            boxB.classList.toggle('yellow')
+            
+            img2.src = '../img/bg2.jpg'
+
+            if (boxB.classList.contains('yellow')){
+                img2.src = '../img/bg.jpg'
+            }
+        
+        
+        // !可以將 true/false的結果相反
+        // if (!boxB.classList.contains('y')){
+        //     img2.src = '../img/bg2.jpg'
+        // }
+        }
+        
+
+        
+
+
+    </script>
+</body>
+</html>

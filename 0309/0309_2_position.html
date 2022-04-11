@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0309_2_position</title>
+
+    <style>
+        /* position 定位
+        相對位置 relative 以目前標籤邊線為基準計算距離位移
+        絕對位置 obsolute 以某標籤邊線為基準機算距離位移
+                某標籤 = 向上搜尋relative父層 無則為body*/
+        /* z-index 圖層高度 */
+        .box0 {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            background-color: rgb(220, 248, 255);
+        }
+
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(255, 166, 166);
+            float: left;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(155, 202, 255);
+            position: relative;
+            float: left;
+            left: 20px;
+            top: 10px;
+
+        }
+
+        .box3 {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(166, 252, 255);
+            float: left;
+            position: relative;
+            left: 40px;
+            top: 20px
+        }
+
+        .box4 {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(144, 255, 153);
+            position: absolute;
+            top: calc(50% - 50px);
+            left: calc(50% - 50px);
+        }
+
+        .box5 {
+            width: 20%;
+            height: 20%;
+            background-color: rgb(192, 144, 255);
+            position: absolute;
+            top: calc(50% - 10%);
+            left: calc(50% - 10%);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box0">
+        <div class="box4"></div>
+    </div>
+    <div class="box0">
+        <div class="box5"></div>
+    </div>
+
+
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+</body>
+
+</html>

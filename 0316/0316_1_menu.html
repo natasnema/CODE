@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0316_1_menu</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .nav {
+        width: 1000px;
+        height: 550px;
+        border: black 2px solid;
+        position: relative;
+    }
+
+    .boxB {
+        width: 500px;
+        height: 500px;
+        border: 2px black solid;
+        position: relative;
+        top: 25px;
+        left: 25px;
+    }
+
+    .boxB .lineBT,
+    .boxB .lineBM,
+    .boxB .lineBB {
+        width: 400px;
+        height: 30px;
+        border: 2px black solid;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition-duration: 1s;
+    }
+
+    .boxB .lineBT {
+        top: 25%;
+    }
+
+    .boxB .lineBM {
+        top: 50%;
+    }
+
+    .boxB .lineBB {
+        top: 75%;
+    }
+
+    .boxB:focus .lineBT {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .boxB:focus .lineBB {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    .boxB:focus .lineBM {
+        opacity: 0;
+        transition-duration: 2s;
+    }
+
+    .dis1, .dis2 {
+        width: 750px;
+        height: 240px;
+        border: 2px black solid;
+        position: absolute;
+        left: 35px;
+        transform-origin: top left;
+        transform: scale(0, 0);
+        transition-duration: 2s;
+        opacity: 0;
+    }
+
+    .dis1 {
+        top: 580px;
+    }
+
+    .dis2 {
+        top: 830px;
+    }
+
+    .boxB:focus ~ .menu {
+        opacity: 100%;
+        position: absolute;
+        transform-origin: top left;
+        transform: scale(1, 1);
+        transition-delay: 0.5s;
+
+    }
+
+    .boxC {
+        width: 600px;
+        height: 140px;
+        border: 2px black solid;
+        position: absolute;
+        left: 50px;
+        top: 50px;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    .li1 {
+        width: 350px;
+        height: 30px;
+        text-align: center;
+        margin: auto;
+        margin-top: 10px;
+        border: 2px black solid;
+    }
+</style>
+
+<body>
+    <div class="nav">
+        <div class="boxB" tabindex="1">
+            <div class="lineBT"></div>
+            <div class="lineBM"></div>
+            <div class="lineBB"></div>
+
+        </div>
+        <div class="dis1 menu">
+            <div class="boxC">
+                <ul>
+                    <li class="li1">opt1</li>
+                    <li class="li1">opt2</li>
+                    <li class="li1">opt3</li>
+                </ul>
+            </div>
+        </div>
+        <div class="dis2 menu">
+            <div class="boxC">
+                <ul>
+                    <li class="li1">opt1</li>
+                    <li class="li1">opt2</li>
+                    <li class="li1">opt3</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    </div>
+
+
+
+</body>
+
+</html>

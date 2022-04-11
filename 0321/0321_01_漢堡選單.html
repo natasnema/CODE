@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0321_01_漢堡選單</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 300px;
+            background-color: aqua;
+            display: none;
+        }
+
+        /* 隱藏checkbox */
+        .switch {
+            display: none;
+        }
+
+        .switch:checked~.box {
+            display: block;
+        }
+
+        .switch {
+            width: 30px;
+            height: 30px;
+            background-color: cadetblue;
+        }
+
+        .switch:checked+.box {
+            background-color: brown;
+        }
+
+        .label01 {
+            display: block;
+            width: 500px;
+            height: 500px;
+            border: 2px black solid;
+            position: relative;
+        }
+
+        .label01 .lineT,
+        .label01 .lineB {
+            width: 400px;
+            height: 30px;
+            border: 2px black solid;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition-duration: 1s;
+        }
+
+        .label01 .lineT {
+            top: 25%;
+        }
+
+        .label01 .lineB {
+            top: 75%;
+        }
+
+        .switch:checked~.label01 .lineT {
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .switch:checked~.label01 .lineB {
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 用label連接input label可以自行設定樣式 -->
+    <input type="checkbox" class="switch" id="checkbox01">
+    <label for="checkbox01" class="label01">
+        <div class="lineT"></div>
+        <div class="lineB"></div>
+    </label>
+    <div class="box"></div>
+</body>
+
+</html>

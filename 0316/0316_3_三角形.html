@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0316_3_三角形</title>
+    <style>
+        /* 偽類元素 */
+        * {
+            box-sizing: border-box;
+        }
+
+        .box-1::before {
+            content: 'HI';
+            width: 30px;
+            height: 20px;
+            color: cadetblue;
+        }
+
+        .box-2::before {
+            content: ' ';
+            width: 10px;
+            height: 20px;
+            background-color: cadetblue;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .box-2::after {
+            content: ' ';
+            width: 10px;
+            height: 20px;
+            background-color: cadetblue;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .box-2 {
+            font-size: 25px;
+        }
+
+        .triT,
+        .triR,
+        .triL,
+        .triB {
+            width: 200px;
+            height: 200px;
+            border-style: solid;
+            border-width: 100px;
+        }
+
+        .triT {
+            border-top-color: rgb(255, 0, 0);
+            border-right-color: rgb(255, 255, 255);
+            border-left-color: rgb(255, 255, 255);
+            border-bottom-color: rgb(255, 255, 255);
+        }
+
+        .triL {
+            border-top-color: rgb(255, 255, 255);
+            border-right-color: rgb(255, 255, 255);
+            border-left-color: rgb(255, 0, 0);
+            border-bottom-color: rgb(255, 255, 255);
+        }
+
+        .triR {
+            border-top-color: rgb(255, 255, 255);
+            border-right-color: rgb(255, 0, 0);
+            border-left-color: rgb(255, 255, 255);
+            border-bottom-color: rgb(255, 255, 255);
+        }
+
+        .triB {
+            border-top-color: rgb(255, 255, 255);
+            border-right-color: rgb(255, 255, 255);
+            border-left-color: rgb(255, 255, 255);
+            border-bottom-color: rgb(255, 0, 0);
+        }
+
+
+
+        .arrowA {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(0, 0, 0);
+            float: left;
+        }
+
+        .arrowB {
+            width: 200px;
+            height: 200px;
+            border-style: solid;
+            border-width: 100px;
+            border-top-color: rgba(255, 255, 255, 0);
+            border-right-color: rgba(255, 255, 255, 0);
+            border-left-color: rgb(0, 0, 0);
+            border-bottom-color: rgba(255, 255, 255, 0);
+            float: left;
+        }
+        .arrowC {
+            width: 200px;
+            height: 200px;
+            border-style: solid;
+            border-width: 100px;
+            border-top-color: rgba(0, 0, 0, 0);
+            border-right-color: rgba(0, 0, 0, 0);
+            border-left-color: rgb(255, 255, 255);
+            border-bottom-color: rgba(0, 0, 0, 0);
+            float: left;
+            position: absolute;
+            left:408px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box-1">Hellow!</div>
+    <div class="box-2">Hellow!</div>
+    <div class="triT"></div>
+    <div class="triR"></div>
+    <div class="triL"></div>
+    <div class="triB"></div>
+    <div>
+        <div class="arrowA"></div>
+        <div class="arrowB"></div>
+    </div>
+    <div>
+        <div class="arrowC"></div>
+        <div class="arrowA"></div>
+    </div>
+
+</body>
+
+</html>

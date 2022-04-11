@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0329_work_2(box_size_V1)</title>
+</head>
+
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        font-size: 20px;
+    }
+
+    nav {
+        width: 100%;
+        height: 50px;
+        padding: 5px 20px 5px 20px;
+        background-color: rgb(205, 194, 255);
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .start,
+    .score,
+    .timeleft {
+        width: 200px;
+        height: 40px;
+        background-color: rgb(150, 150, 150);
+        padding: 10px;
+        border-radius: 15px;
+    }
+
+    .game {
+        width: 430px;
+        height: 430px;
+        margin: 50px auto;
+        padding: 5px;
+        background-color: rgb(202, 255, 255);
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+    }
+
+    .box {
+        margin: 5px;
+        border-radius: 5px;
+    }
+</style>
+
+<body>
+    <nav>
+        <div class="start">START</div>
+        <div class="score">SCORE:</div>
+        <div class="timeleft">TIME:</div>
+    </nav>
+    <main>
+        <div class="game" style="width:430px; height:430px">
+        </div>
+    </main>
+
+
+    <script>
+        const game = document.querySelector('.game');
+        const start = document.querySelector('.start');
+        const score = document.querySelector('.score');
+        const timeleft = document.querySelector('.timeleft');
+        var timer;
+        var vp;
+        var time;
+
+
+        function startplay() {
+
+            game.innerHTML = '';
+
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+            var a = 200
+
+            if (vp < 3) {
+
+                var ans = Math.floor(Math.random() * 4);
+
+                for (let A = 0; A < 4; A++) {
+                    if (A == ans) {
+                        game.innerHTML += '<div class="box" style="width: calc(50% - 10px); height: calc(50% - 10px); background-color: rgba(' + r + ',' + g + ',' + b + ', 0.45);"></div>'
+                    } else {
+                        game.innerHTML += '<div class="box" style="width: calc(50% - 10px); height: calc(50% - 10px); background-color: rgba(' + r + ',' + g + ',' + b + ', 1);"></div>'
+                    }
+                }
+
+                const boxs = document.querySelectorAll('.box')
+
+                for (let A = 0; A < 4; A++) {
+                    if (A == ans) {
+                        boxs[A].onclick = function () {
+                            vp++;
+                            score.innerHTML = 'SCORE:' + vp;
+                            startplay()
+                        }
+                    } else {
+                        boxs[A].onclick = function () {
+                            alert('FALSE!!!');
+                            game.innerHTML = '';
+                            clearInterval(timer);
+                            time = 0
+                            newgame()
+                        }
+                    }
+                }
+            } else if (3 <= vp && vp < 6) {
+
+                var ans = Math.floor(Math.random() * 9);
+
+                for (let B = 0; B < 9; B++) {
+                    if (B == ans) {
+                        game.innerHTML += '<div class="box" style="width: calc(30% - 3px); height: calc(30% - 3px); background-color: rgba(' + r + ',' + g + ',' + b + ', 0.55);"></div>'
+                    } else {
+                        game.innerHTML += '<div class="box" style="width: calc(30% - 3px); height: calc(30% - 3px); background-color: rgba(' + r + ',' + g + ',' + b + ', 1);"></div>'
+                    }
+                }
+
+                const boxs = document.querySelectorAll('.box')
+
+                for (let B = 0; B < 9; B++) {
+                    if (B == ans) {
+                        boxs[B].onclick = function () {
+                            vp++;
+                            score.innerHTML = 'SCORE:' + vp;
+                            startplay()
+                        }
+                    } else {
+                        boxs[B].onclick = function () {
+                            alert('FALSE!!!');
+                            game.innerHTML = '';
+                            clearInterval(timer);
+                        }
+                    }
+                }
+            } else if (6 <= vp && vp < 9) {
+                var ans = Math.floor(Math.random() * 16);
+
+                for (let A = 0; A < 16; A++) {
+                    if (A == ans) {
+                        game.innerHTML += '<div class="box" style="width: calc(23% - 5px); height: calc(23% - 5px); background-color: rgba(' + r + ',' + g + ',' + b + ', 0.65);"></div>'
+                    } else {
+                        game.innerHTML += '<div class="box" style="width: calc(23% - 5px); height: calc(23% - 5px); background-color: rgba(' + r + ',' + g + ',' + b + ', 1);"></div>'
+                    }
+                }
+
+                const boxs = document.querySelectorAll('.box')
+
+                for (let A = 0; A < 16; A++) {
+                    if (A == ans) {
+                        boxs[A].onclick = function () {
+                            vp++;
+                            score.innerHTML = 'SCORE:' + vp;
+                            startplay()
+                        }
+                    } else {
+                        boxs[A].onclick = function () {
+                            alert('FALSE!!!');
+                            game.innerHTML = '';
+                            clearInterval(timer);
+                        }
+                    }
+                }
+            } else if (9 <= vp && vp < 12) {
+                var ans = Math.floor(Math.random() * 25);
+
+                for (let A = 0; A < 25; A++) {
+                    if (A == ans) {
+                        game.innerHTML += '<div class="box" style="width: calc(18% - 5px); height: calc(18% - 5px); background-color: rgba(' + r + ',' + g + ',' + b + ', 0.75);"></div>'
+                    } else {
+                        game.innerHTML += '<div class="box" style="width: calc(18% - 5px); height: calc(18% - 5px); background-color: rgba(' + r + ',' + g + ',' + b + ', 1);"></div>'
+                    }
+                }
+
+                const boxs = document.querySelectorAll('.box')
+
+                for (let A = 0; A < 25; A++) {
+                    if (A == ans) {
+                        boxs[A].onclick = function () {
+                            vp++;
+                            score.innerHTML = 'SCORE:' + vp;
+                            startplay()
+                        }
+                    } else {
+                        boxs[A].onclick = function () {
+                            alert('FALSE!!!');
+                            game.innerHTML = '';
+                            clearInterval(timer);
+                        }
+                    }
+                }
+            } else if (12 <= vp && vp < 15) {
+                var ans = Math.floor(Math.random() * 36);
+
+                for (let A = 0; A < 36; A++) {
+                    if (A == ans) {
+                        game.innerHTML += '<div class="box" style="width: calc(15% - 5px); height: calc(15% - 5px); background-color: rgba(' + r + ',' + g + ',' + b + ', 0.85);"></div>'
+                    } else {
+                        game.innerHTML += '<div class="box" style="width: calc(15% - 5px); height: calc(15% - 5px); background-color: rgba(' + r + ',' + g + ',' + b + ', 1);"></div>'
+                    }
+                }
+
+                const boxs = document.querySelectorAll('.box')
+
+                for (let A = 0; A < 36; A++) {
+                    if (A == ans) {
+                        boxs[A].onclick = function () {
+                            vp++;
+                            score.innerHTML = 'SCORE:' + vp;
+                            startplay()
+                        }
+                    } else {
+                        boxs[A].onclick = function () {
+                            alert('FALSE!!!');
+                            game.innerHTML = '';
+                            clearInterval(timer);
+                        }
+                    }
+                }
+            } else if (15 <= vp) {
+                var ans = Math.floor(Math.random() * 49);
+
+                for (let A = 0; A < 49; A++) {
+                    if (A == ans) {
+                        game.innerHTML += '<div class="box" style="width: calc(13% - 5px); height: calc(13% - 5px); background-color: rgba(' + r + ',' + g + ',' + b + ', 0.99);"></div>'
+                    } else {
+                        game.innerHTML += '<div class="box" style="width: calc(13% - 5px); height: calc(13% - 5px); background-color: rgba(' + r + ',' + g + ',' + b + ', 1);"></div>'
+                    }
+                }
+
+                const boxs = document.querySelectorAll('.box')
+
+                for (let A = 0; A < 49; A++) {
+                    if (A == ans) {
+                        boxs[A].onclick = function () {
+                            vp++;
+                            score.innerHTML = 'SCORE:' + vp;
+                            startplay()
+                        }
+                    } else {
+                        boxs[A].onclick = function () {
+                            alert('FALSE!!!');
+                            game.innerHTML = '';
+                            clearInterval(timer);
+                        }
+                    }
+                }
+            }
+        }
+
+        function newgame () {
+            start.onclick = function () {
+                clearInterval(timer)
+                vp = 0
+                game.innerHTML = ''
+                time = 50;
+                score.innerHTML = 'SCORE:' + vp;
+                timeleft.innerHTML = 'TIME:' + time;
+                timer = setInterval(function () {
+                    time--;
+                    timeleft.innerHTML = 'TIME:' + time;
+                    if (time == 0) {
+                        clearInterval(timer);
+                        game.innerHTML = ''
+                        alert("TIME'S UP" + vp)
+                    }
+                }, 1000)
+                startplay()
+            }
+        }
+        newgame()
+    </script>
+</body>
+
+</html>

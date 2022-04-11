@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0314_5_選擇器</title>
+
+    <style>
+        /* https://flukeout.github.io/  */
+        /* 全域選擇器 */
+        * {
+            background-color: rgb(218, 255, 255);
+            color: blue;
+        }
+
+        /* A B 後代選擇器 */
+        div p {
+            color: red;
+        }
+
+        div>p {
+            color: rgb(0, 92, 12);
+        }
+
+        /* 選擇兩種以上 */
+        main1,
+        main2 {
+            color: cadetblue;
+        }
+
+        /* (鄰接)兄弟選擇器 下第一個 */
+        p+span {
+            color: chartreuse;
+        }
+
+        /* 通用同層選擇器 下所有*/
+        p~span1 {
+            color: rgb(121, 0, 101);
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="https://flukeout.github.io/">CSS dinner</a>
+    <!-- 後代選擇器 -->
+    
+    <div>
+        <p>AAA</p>
+        <p>BBB</p>
+        <p>CCC</p>
+    </div>
+
+    <div>
+        <p>DDD
+            <span>
+                <p>EEE</p>
+            </span>
+            </p>
+    </div>>
+
+    <!-- 選擇兩種以上 -->
+    <div>
+        <main1>FFF</main1>
+        <main2>GGG</main2>
+    </div>
+
+    <!-- (鄰接)兄弟選擇器 -->
+    <div>
+        <p>HHH</p>
+        <span>span</span>
+        <span>span</span>
+    </div>
+
+    <!-- 通用同層選擇器 -->
+    <div>
+        <span1>span</span1>
+        <p>III</p>
+        <span1>span</span1>
+        <span1>span</span1>
+    </div>
+
+</body>
+
+</html>

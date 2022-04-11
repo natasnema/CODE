@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather</title>
+    <link rel="stylesheet" href="./0331_van_weather.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav>Taiwan Weather Forecast
+        <div class="area taiwan" data-name="">全部</div>
+        <div class="area north">北部</div>
+        <div class="area west">西部</div>
+        <div class="area south">南部</div>
+        <div class="area east">東部</div>
+        <div class="area island">離島</div>
+        <div class="search">
+            <input type="text" value="" id="word">
+            <button onclick="search_city">搜尋</button>
+        </div>
+    </nav>
+    <main>
+    </main>
+
+    <script>
+        // const today = Date();
+        // const t = today.getHours();
+        const url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-1D4A93AD-B874-4F3C-8F48-F5DE009A592D'
+        fetch(url)
+            .then(function (respones) {
+                return respones.json();
+            })
+            .then(function (myJson) {
+                const main = document.querySelector('main')
+
+                myJson.records.location.forEach((city, index) => {
+
+                    var weacon
+
+                    if (city.weatherElement[0].time[0].parameter.parameterValue < 3) {
+                        weacon = ' sun_icon'
+                    } else if (city.weatherElement[0].time[0].parameter.parameterValue < 8) {
+                        weacon = ' cloud_icon'
+                    } else {
+                        weacon = ' rain_icon'
+                    }
+
+                    if (index == 1 | index == 3 | index == 4 | index == 5 | index == 7 | index == 13 | index == 18) {
+                        index = 'north'
+                    } else if (index == 8 | index == 9 | index == 11 | index == 14 | index == 20) {
+                        index = 'west'
+                    } else if (index == 0 | index == 2 | index == 6 | index == 15 | index == 17) {
+                        index = 'south'
+                    } else if (index == 10 | index == 12) {
+                        index = 'east'
+                    } else if (index == 16 | index == 19 | index == 21) {
+                        index = 'island'
+                    }
+
+                
+                    
+                    
+
+                    main.innerHTML += `
+                    <div class="${index}city" data-name="${city.locationName}">
+                        <div class="card">
+                            <p class="city">${city.locationName}</p>
+                            <p class="temp">${city.weatherElement[2].time[0].parameter.parameterName}~${city.weatherElement[4].time[0].parameter.parameterName}°C</p>
+                            <p class="weather">${city.weatherElement[0].time[0].parameter.parameterName}</p>
+                            <p class="feel">${city.weatherElement[3].time[0].parameter.parameterName}</p>
+                            <div class="w_icon ${weacon}"></div>
+                        </div>
+                    </div>
+                    `
+                });
+
+                const allbtn = document.querySelector('.taiwan')
+
+                const northbtn = document.querySelector('.north')
+                const northcity = document.querySelectorAll('.northcity')
+
+                const westbtn = document.querySelector('.west')
+                const westcity = document.querySelectorAll('.westcity')
+
+                const southbtn = document.querySelector('.south')
+                const southcity = document.querySelectorAll('.southcity')
+
+                const eastbtn = document.querySelector('.east')
+                const eastcity = document.querySelectorAll('.eastcity')
+
+                const islandbtn = document.querySelector('.island')
+                const islandcity = document.querySelectorAll('.islandcity')
+
+                allbtn.onclick = function () {
+
+                    for (let i = 0; i < 7; i++) {
+                        northcity[i].style.display = 'block';
+                    }
+
+                    for (let i = 0; i < 5; i++) {
+                        westcity[i].style.display = 'block';
+                    }
+
+                    for (let i = 0; i < 5; i++) {
+                        southcity[i].style.display = 'block';
+                    }
+
+                    for (let i = 0; i < 2; i++) {
+                        eastcity[i].style.display = 'block';
+                    }
+
+                    for (let i = 0; i < 3; i++) {
+                        islandcity[i].style.display = 'block';
+                    }
+                }
+
+                northbtn.onclick = function () {
+
+                    for (let i = 0; i < 7; i++) {
+                        northcity[i].style.display = 'block';
+                    }
+
+                    for (let i = 0; i < 5; i++) {
+                        westcity[i].style.display = 'none';
+                    }
+
+                    for (let i = 0; i < 5; i++) {
+                        southcity[i].style.display = 'none';
+                    }
+
+                    for (let i = 0; i < 2; i++) {
+                        eastcity[i].style.display = 'none';
+                    }
+
+                    for (let i = 0; i < 3; i++) {
+                        islandcity[i].style.display = 'none';
+                    }
+                }
+
+                westbtn.onclick = function () {
+
+                    for (let i = 0; i < 7; i++) {
+                        northcity[i].style.display = 'none';
+                    }
+
+                    for (let i = 0; i < 5; i++) {
+                        westcity[i].style.display = 'block';
+                    }
+
+                    for (let i = 0; i < 5; i++) {
+                        southcity[i].style.display = 'none';
+                    }
+
+                    for (let i = 0; i < 2; i++) {
+                        eastcity[i].style.display = 'none';
+                    }
+
+                    for (let i = 0; i < 3; i++) {
+                        islandcity[i].style.display = 'none';
+                    }
+                }
+
+                southbtn.onclick = function () {
+
+                    for (let i = 0; i < 7; i++) {
+                        northcity[i].style.display = 'none';
+                    }
+
+                    for (let i = 0; i < 5; i++) {
+                        westcity[i].style.display = 'none';
+                    }
+
+                    for (let i = 0; i < 5; i++) {
+                        southcity[i].style.display = 'block';
+                    }
+
+                    for (let i = 0; i < 2; i++) {
+                        eastcity[i].style.display = 'none';
+                    }
+
+                    for (let i = 0; i < 3; i++) {
+                        islandcity[i].style.display = 'none';
+                    }
+                }
+
+                eastbtn.onclick = function () {
+
+                    for (let i = 0; i < 7; i++) {
+                        northcity[i].style.display = 'none';
+                    }
+
+                    for (let i = 0; i < 5; i++) {
+                        westcity[i].style.display = 'none';
+                    }
+
+                    for (let i = 0; i < 5; i++) {
+                        southcity[i].style.display = 'none';
+                    }
+
+                    for (let i = 0; i < 2; i++) {
+                        eastcity[i].style.display = 'block';
+                    }
+
+                    for (let i = 0; i < 3; i++) {
+                        islandcity[i].style.display = 'none';
+                    }
+                }
+
+                islandbtn.onclick = function () {
+
+                    for (let i = 0; i < 7; i++) {
+                        northcity[i].style.display = 'none';
+                    }
+
+                    for (let i = 0; i < 5; i++) {
+                        westcity[i].style.display = 'none';
+                    }
+
+                    for (let i = 0; i < 5; i++) {
+                        southcity[i].style.display = 'none';
+                    }
+
+                    for (let i = 0; i < 2; i++) {
+                        eastcity[i].style.display = 'none';
+                    }
+
+                    for (let i = 0; i < 3; i++) {
+                        islandcity[i].style.display = 'block';
+                    }
+                }
+
+
+
+
+            });
+
+            // function search_city(){
+            //     main.
+            // }
+        
+    </script>
+</body>
+
+</html>

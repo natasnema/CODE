@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0308_4_圖片基本設定</title>
+<style>
+    /* 圖片大小設定寬或高擇一 另一邊自動等比例縮放 */
+    /* opacity = 透明度(作用div本身非圖檔) */
+    .img_wh{
+        width: 600px;
+        float: left;
+        opacity: 0.3;
+    }
+
+
+/*  background-size: contain = 等比例放大至某邊滿版 
+    background-size: cover = 自動等比例放大至填滿
+    background-position: center/top/bottom/left/right = 圖片中心點置中/頂/底/左/右
+    background-repeat: = 背景重複方式
+    background-attachment: fixed = 背景固定    */
+    .background{
+        width: 100vw;
+        height: 100vh;
+        background-image:url(../img/bg.jpg);
+        background-size: cover;    
+        background-position: bottom ;
+        background-attachment: fixed;    
+    }
+
+</style>
+
+</head>
+<body>
+    <!-- img圖片建立 src=圖片位置 alt=替代文字 -->
+    <!-- 相對路徑 絕對路徑 ./=檔案同層 ../=檔案上一層 -->
+    <img src="../img/vendetta.png" 
+    class="img_wh"
+    alt="V for Vendetta">
+    <!-- 背景圖片 -->
+    <div class="background"></div>
+    
+    
+
+</body>
+</html>

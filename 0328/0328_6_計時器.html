@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // setInterval 設定 重複執行的程式碼用的 使用方法
+        // setInterval(要執行的程式, 每隔多久執行(毫秒))
+        
+        // 每秒say hello world
+        var  timer1 = setInterval('console.log("hello world")', 1000)
+        
+        // 每秒say hi
+        function hi(){
+            console.log('hi');
+        }
+
+        var timer2 = setInterval("hi()", 1000)
+
+        // 每秒say no
+        var timer3 = setInterval(function(){
+            console.log('no');
+        }, 1000)
+
+        clearInterval(timer3)
+
+        // setTimeout 使用方法與 Interval 雷同 但是他不會重複執行 而是在規定的毫秒數之後執行一次
+
+        var timer3 = setTimeout(function(){
+            console.log('我只跑一次喔');
+        },1000)
+        
+        
+    </script>
+</body>
+</html>

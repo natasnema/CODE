@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 通常使用 form表單 對網站送請求(POST)
+    
+    RESTful API 規範 使用方法
+
+    form表單雖然可以向其他sever送出請求 但其特性會更新頁面
+    所以當要留在同一頁面或資料需要累加時無法使用
+
+    而fetch不只可以送出請求, 也可以做到同一頁面持續更新或加載內容(不須更新頁面 只更新內容) -->
+        
+    <main></main>
+    
+    <script>
+        const main = document.querySelector('main')
+        const div = document.querySelector('main')
+        fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-1D4A93AD-B874-4F3C-8F48-F5DE009A592D')
+        .then(function(respones){
+            return respones.json();
+        })
+
+        .then(function(myJson){           
+            console.log(myJson);
+
+            // div.innerHTML= (myJson.records.location[11].locationName + myJson.records.location[13].weatherElement[0].elementName)
+
+            // main.innerHTML = ('<div>' + myJson.records.location[11].locationName + '</div>')
+        });
+
+    </script>
+</body>
+</html>
