@@ -53,12 +53,16 @@
             }
         }
 
-        .txtg500 {
-            color: rgba(107, 114, 128, 1);
+        .fw700 {
+            font-weight: 700;
         }
 
-        .txtg600 {
-            color: rgba(75, 85, 99, 1);
+        .txtg1 {
+            color: rgba(156, 163, 175, 1);
+        }
+
+        .txtg2 {
+            color: rgba(156,163,175,1);
         }
 
         .py6 {
@@ -77,6 +81,10 @@
         .obj {
             object-fit: cover;
             object-position: center;
+        }
+
+        .borr {
+            border-radius: 0.5rem;
         }
 
         /* --------------------nav-------------------- */
@@ -101,15 +109,36 @@
 
         @media (max-width:768px) {
             .login {
-            z-index: 2;
-            width: 90%;
-            border-radius: 0.5rem;
-            top: 23rem;
-            right: 5%;
+                z-index: 2;
+                width: 90%;
+                border-radius: 0.5rem;
+                top: 23rem;
+                right: 5%;
             }
         }
 
         /* --------------------main-------------------- */
+
+        .icon_foot {
+            width: 1.25rem;
+            height: 1.25rem;
+            object-fit: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* --------------------footer-------------------- */
+
+        .cart {
+            max-width: 64rem;
+        }
+
+        @media (max-width: 768px) {
+            .cart {
+                max-width: 28rem;
+            }
+        }
 
         .container1 {
             max-width: 100%;
@@ -147,7 +176,6 @@
                 max-width: 1536px;
             }
         }
-
     </style>
 </head>
 
@@ -197,11 +225,69 @@
         </nav>
     </header>
 
+    <main class="bggray">
+        <div class="py-5">
+            <div class="cart borr m-auto shadow-lg">
+
+                <div class="card borr" style="padding: 2.5rem;">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                        <li class="list-group-item px-0 py-4">
 
 
+                            <div class="d-flex align-items-center">
+                                <img class="rounded-circle mr-1" style="width: 3.75rem; height: 3.75rem;" src="../img/chickemmomo.jpg">
+                                <div class="ml-2">
+                                    <div>Chicken momo</div>
+                                    <div class="fs75 font-weight-light txtg2">#41551</div>
+                                </div>
+                            </div>
+
+                            <div>  
+                                <!-- 數量 -->
+                            </div>
 
 
+                        </li>
 
+                        <li class="list-group-item px-0 py-4 d-flex flex-column align-items-end">
+                            <div class="col-3 p-0 d-flex justify-content-between align-items-center">
+                                <span class="fs875 txtg1">數量:</span>
+                                <span class="fs1125 fw700">3</span>
+                            </div>
+                            <div class="col-3 p-0 d-flex justify-content-between align-items-center">
+                                <span class="fs875 txtg1">小計:</span>
+                                <span class="fs1125 fw700">$31.50</span>
+                            </div>
+                            <div class="col-3 p-0 d-flex justify-content-between align-items-center">
+                                <span class="fs875 txtg1">運費:</span>
+                                <span class="fs1125 fw700">$9.90</span>
+                            </div>
+                            <div class="col-3 p-0 d-flex justify-content-between align-items-center">
+                                <span class="fs875 txtg1">總計:</span>
+                                <span class="fs1125 fw700">$41.40</span>
+                            </div>
+                        </li>
+
+                        <li class="list-group-item px-0 pt-4 pb-0 d-flex justify-content-between align-items-center">
+
+                            <div class="d-flex align-items-center">
+                                <img src="../img/arrow-4.svg" class="mr-2" style="height: 12.5px;width: 14px;">
+                                返回購物
+                            </div>
+
+                            <button type="button" class="btn btn-primary px-5 w-auto d-block"
+                                style="height: 3rem;">下一步</button>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </main>
 
     <footer>
         <div class="container1 d-flex flex-column flex-md-row align-items-center">
