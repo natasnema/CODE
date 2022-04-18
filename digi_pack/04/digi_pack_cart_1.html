@@ -60,7 +60,7 @@
                 font-size: 1.5rem;
             }
         }
-        
+
         .fsstep {
             font-size: 1rem;
             line-height: 1rem;
@@ -142,7 +142,7 @@
         }
 
         @media (max-width:575px) {
-            .logo-1{
+            .logo-1 {
                 height: 62px;
             }
         }
@@ -334,7 +334,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="rounded-circle d-flex align-items-center justify-content-center fs1125"
                                         style="width: 2.5rem; height: 2.5rem; background-color: white;">4</div>
                                     <div class="mt-2 fsstep">完成訂購</div>
@@ -360,11 +360,11 @@
 
                                 <div class="d-flex align-items-center pr-3">
                                     <div class="mr-3 d-flex">
-                                        <span>-</span>
-                                        <input type="text" value="1" class="inputnum border">
-                                        <span>+</span>
+                                        <span id="cmminus" onclick="cmminus()">-</span>
+                                        <input id="cm" type="text" value="1" class="inputnum border">
+                                        <span id="cmplus" onclick="cmplus()">+</span>
                                     </div>
-                                    <div class="ml-3 fs75 pr-3">$10.50</div>
+                                    <div id="cmpr" class="ml-3 fs75 pr-3" style="width:3.5rem;">$10.50</div>
                                 </div>
                             </div>
                         </li>
@@ -381,11 +381,11 @@
 
                             <div class="d-flex align-items-center pr-3">
                                 <div class="mr-3 d-flex">
-                                    <span>-</span>
-                                    <input type="text" value="1" class="inputnum border">
-                                    <span>+</span>
+                                    <span id="smpminus" onclick="smpminus()">-</span>
+                                    <input id="smp" type="text" value="1" class="inputnum border">
+                                    <span id="smpplus" onclick="smpplus()">+</span>
                                 </div>
-                                <div class="ml-3 fs75 pr-3">$10.50</div>
+                                <div id="smppr" class="ml-3 fs75 pr-3" style="width:3.5rem;">$10.50</div>
                             </div>
                         </li>
 
@@ -401,43 +401,47 @@
 
                             <div class="d-flex align-items-center pr-3">
                                 <div class="mr-3 d-flex">
-                                    <span>-</span>
-                                    <input type="text" value="1" class="inputnum border">
-                                    <span>+</span>
+                                    <span id="bfminus" onclick="bfminus()">-</span>
+                                    <input id="bf" type="text" value="1" class="inputnum border">
+                                    <span id="bfplus" onclick="bfplus()">+</span>
                                 </div>
-                                <div class="ml-3 fs75 pr-3">$10.50</div>
+                                <div id="bfpr" class="ml-3 fs75 pr-3" style="width:3.5rem;">$10.50</div>
                             </div>
                         </li>
 
                         <li class="list-group-item px-0 py-4 d-flex flex-column align-items-end cardgray">
                             <div class="col-6 col-md-3 p-0 d-flex justify-content-between align-items-center">
                                 <span class="fs875 txtg1">數量:</span>
-                                <span class="fs1125 fw700">3</span>
+                                <span id="tonum" class="fs1125 fw700">3</span>
                             </div>
                             <div class="col-6 col-md-3 p-0 d-flex justify-content-between align-items-center">
                                 <span class="fs875 txtg1">小計:</span>
-                                <span class="fs1125 fw700">$31.50</span>
+                                <span id="itpr" class="fs1125 fw700">$31.50</span>
                             </div>
                             <div class="col-6 col-md-3 p-0 d-flex justify-content-between align-items-center">
                                 <span class="fs875 txtg1">運費:</span>
-                                <span class="fs1125 fw700">$9.90</span>
+                                <span id="fee" class="fs1125 fw700">$9.90</span>
                             </div>
                             <div class="col-6 col-md-3 p-0 d-flex justify-content-between align-items-center">
                                 <span class="fs875 txtg1">總計:</span>
-                                <span class="fs1125 fw700">$41.40</span>
+                                <span id="topr" class="fs1125 fw700">$41.40</span>
                             </div>
                         </li>
 
                         <li
-                            class="list-group-item px-0 pt-4 pb-0 d-flex justify-content-between align-items-center cardgray">
+                            class="row list-group-item px-0 pt-4 pb-0 d-flex justify-content-between align-items-center cardgray">
 
-                            <div class="d-flex align-items-center">
-                                <img src="../img/arrow-4.svg" class="mr-2" style="height: 12.5px;width: 14px;">
-                                返回購物
+                            <div class="col-12 col-sm-6 d-flex justify-content-center justify-content-sm-start mb-3 mb-sm-0">
+                                <div class="d-flex align-items-center">
+                                    <img src="../img/arrow-4.svg" class="mr-2" style="height: 12.5px;width: 14px;">
+                                    返回購物
+                                </div>
                             </div>
 
-                            <button type="button" class="btn btn-primary px-5 w-auto d-block"
-                                style="height: 3rem;">下一步</button>
+                            <div class="col-12 col-sm-6 d-flex justify-content-center justify-content-sm-end">
+                                <button type="button" class="btn btn-primary px-5 w-auto d-block"
+                                    style="height: 3rem;">下一步</button>
+                            </div>
                         </li>
 
                     </ul>
@@ -523,6 +527,63 @@
             </div>
         </div>
     </footer>
+
+    <script>
+
+
+        var cm = document.querySelector('#cm')
+        var cmpr = document.querySelector('#cmpr')
+
+        function cmplus() {
+            ++cm.value;
+            cmpr.innerHTML = `$${10.5 * cm.value}`;
+        }
+
+        function cmminus() {
+            if (cm.value <= 0) {
+                cm.value = 0
+            } else {
+                --cm.value
+                cmpr.innerHTML = `$${10.5 * cm.value}`;
+            }
+        }
+
+        var smp = document.querySelector('#smp')
+        var smppr = document.querySelector('#smppr')
+
+        function smpplus() {
+            ++smp.value;
+            smppr.innerHTML = `$${10.5 * smp.value}`;
+        }
+
+        function smpminus() {
+            if (smp.value <= 0) {
+                smp.value = 0
+            } else {
+                --smp.value
+                smppr.innerHTML = `$${10.5 * smp.value}`;
+            }
+        }
+
+        var bf = document.querySelector('#bf')
+        var bfpr = document.querySelector('#bfpr')
+
+        function bfplus() {
+            ++bf.value;
+            bfpr.innerHTML = `$${10.5 * bf.value}`;
+        }
+
+        function bfminus() {
+            if (bf.value <= 0) {
+                bf.value = 0
+            } else {
+                --bf.value
+                bfpr.innerHTML = `$${10.5 * bf.value}`;
+            }
+        }
+
+
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
