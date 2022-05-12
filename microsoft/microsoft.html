@@ -260,7 +260,7 @@
 
             </div>
 
-            <div class="pptbtn" tabindex="1"><div class="tips">暫停投影片</div></div>
+            <div class="pptbtn" onclick="play()"tabindex="1"><div class="tips">暫停投影片</div></div>
 
         </div>
 
@@ -537,6 +537,9 @@
             slidesPerView: 1,
             spaceBetween: 0,
             loop: true,
+            autoplay:{
+                delay:2500
+            },
 
             pagination: {
                 el: ".swiper-pagination",
@@ -553,6 +556,13 @@
                 prevEl: ".swiper-button-prev",
             },
         });
+        function play() {
+            if (swiper.autoplay.running) {
+                swiper.autoplay.stop()
+            } else {
+                swiper.auroplay.start()
+            }
+        }
     </script>
 
 </body>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>digi_pack_cart_2</title>
+    <title>digi_pack_cart_1</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
@@ -36,7 +36,6 @@
 
         .fs125 {
             font-size: 1.25rem;
-            line-height: 1.75rem;
         }
 
         .fs1 {
@@ -64,7 +63,7 @@
 
         .fsstep {
             font-size: 1rem;
-            line-height: 1rem;
+            line-height: 1.5rem;
         }
 
         @media (max-width:768px) {
@@ -281,8 +280,7 @@
                 <div class="card borr border-0 cardgray" style="padding: 2.5rem;">
                     <ul class="list-group list-group-flush cardgray">
 
-                        <li class="list-group-item p-0 pb-4 cardgray">
-
+                        <li class="list-group-item p-0 cardgray">
                             <div class="fs1875 fw700">購物車</div>
 
                             <div class="row m-0 px-0 py-4">
@@ -294,23 +292,6 @@
                                     <div class="mt-2 fsstep text-center">確認購物車</div>
                                 </div>
 
-                                <div class="col-3 px-0">
-                                    <div class="position-relative d-flex flex-column align-items-center">
-                                        <div class="position-absolute d-flex align-items-center align-content-center"
-                                            style="width: calc(100% - 2.5rem - 1rem); top: 50%; transform: translate(calc(-50% - 1.8rem), -50%); vertical-align: middle;">
-                                            <div class="w-100 rounded-pill" style="background-color: rgb(229,231,235);">
-                                                <div class="py-1 rounded-pill"
-                                                    style="width: 100%; background-color: rgb(110,231,183);">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="rounded-circle d-flex align-items-center justify-content-center fs1125"
-                                            style="width: 2.5rem; height: 2.5rem; background-color: rgb(16,185,129); color: white">
-                                            2</div>
-                                    </div>
-                                    <div class="mt-2 fsstep text-center">付款與運送方式</div>
-                                </div>
 
                                 <div class="col-3 px-0">
                                     <div class="position-relative d-flex flex-column align-items-center">
@@ -324,10 +305,29 @@
                                         </div>
 
                                         <div class="rounded-circle d-flex align-items-center justify-content-center fs1125"
+                                            style="width: 2.5rem; height: 2.5rem; background-color: white;">2</div>
+                                    </div>
+
+                                    <div class="mt-2 fsstep text-center">付款與運送方式</div>
+                                </div>
+
+                                <div class="col-3 px-0">
+                                    <div class="position-relative d-flex flex-column align-items-center">
+                                        <div class="position-absolute d-flex align-items-center align-content-center"
+                                            style="width: calc(100% - 2.5rem - 1rem); top: 50%; transform: translate(calc(-50% - 1.8rem), -50%); vertical-align: middle;">
+                                            <div class="w-100 rounded-pill" style="background-color: rgb(229,231,235);">
+                                                <div class="py-1 rounded-pill"
+                                                    style="width: 0; background-color: rgb(110,231,183);">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="rounded-circle d-flex align-items-center justify-content-center fs1125"
                                             style="width: 2.5rem; height: 2.5rem; background-color: white;">3</div>
                                     </div>
                                     <div class="mt-2 fsstep text-center">填寫資料</div>
                                 </div>
+
 
                                 <div class="col-3 px-0">
                                     <div class="position-relative d-flex flex-column align-items-center">
@@ -348,118 +348,47 @@
 
                             </div>
 
-                        </li>
 
-
-
-
-
-                        <li class="list-group-item px-0 pb-4 cardgray" style="padding-top: 1.25rem;">
-                            <div class="fs15 mb-2" style="line-height: 2rem;">付款方式</div>
-
-                            <div class="card border-0">
-
-                                <ul class="list-group list-group-flush cardgray">
-
-                                    <li class="list-group-item cardgray ml-4 px-0" style="padding: 1.25rem;">
-                                        <div class="form-check d-flex align-items-center">
-                                            <input class="form-check-input my-0" type="radio" name="payRadios"
-                                                id="payRadios1" value="option1">
-                                            <label class="form-check-label fs125" for="payRadios1">
-                                                信用卡付款
-                                            </label>
-                                        </div>
-                                    </li>
-
-                                    <li class="list-group-item cardgray ml-4 px-0" style="padding: 1.25rem;">
-                                        <div class="form-check d-flex align-items-center">
-                                            <input class="form-check-input my-0" type="radio" name="payRadios"
-                                                id="payRadios2" value="option2">
-                                            <label class="form-check-label fs125" for="payRadios2">
-                                                網路 ATM
-                                            </label>
-                                        </div>
-                                    </li>
-
-                                    <li class="list-group-item cardgray ml-4 px-0" style="padding: 1.25rem;">
-                                        <div class="form-check d-flex align-items-center">
-                                            <input class="form-check-input my-0" type="radio" name="payRadios"
-                                                id="payRadios3" value="option3">
-                                            <label class="form-check-label fs125" for="payRadios3">
-                                                超商代碼
-                                            </label>
-                                        </div>
-                                    </li>
-
-                                </ul>
-
-                            </div>
 
                         </li>
 
-                        <li class="list-group-item px-0 pb-4 cardgray" style="padding-top: 1.25rem;">
-                            <div class="fs15 mb-2" style="line-height: 2rem;">運送方式</div>
+                        <div class="fs15 mb-4" style="line-height: 2rem;margin-top: 1.25rem;">訂單明細</div>
 
-                            <div class="card border-0">
+                        <div class="cartitem"></div>
 
-                                <ul class="list-group list-group-flush cardgray">
-
-                                    <li class="list-group-item cardgray ml-4 px-0" style="padding: 1.25rem;">
-                                        <div class="form-check d-flex align-items-center">
-                                            <input class="form-check-input my-0" type="radio" name="getRadios"
-                                                id="getRadios1" value="option1">
-                                            <label class="form-check-label fs125" for="getRadios1">
-                                                黑貓宅配
-                                            </label>
-                                        </div>
-                                    </li>
-
-                                    <li class="list-group-item cardgray ml-4 px-0" style="padding: 1.25rem;">
-                                        <div class="form-check d-flex align-items-center">
-                                            <input class="form-check-input my-0" type="radio" name="getRadios"
-                                                id="getRadios2" value="option2">
-                                            <label class="form-check-label fs125" for="getRadios2">
-                                                超商店到店
-                                            </label>
-                                        </div>
-                                    </li>
-
-                                </ul>
-
-                            </div>
-
-                        </li>
-
-                        <li class="list-group-item px-0 py-4 d-flex flex-column align-items-end cardgray">
-                            <div class="col-6 col-md-3 p-0 d-flex justify-content-between align-items-center">
-                                <span class="fs875 txtg1">數量:</span>
-                                <span class="fs1125 fw700">3</span>
-                            </div>
-                            <div class="col-6 col-md-3 p-0 d-flex justify-content-between align-items-center">
-                                <span class="fs875 txtg1">小計:</span>
-                                <span class="fs1125 fw700">$31.50</span>
-                            </div>
-                            <div class="col-6 col-md-3 p-0 d-flex justify-content-between align-items-center">
-                                <span class="fs875 txtg1">運費:</span>
-                                <span class="fs1125 fw700">$9.90</span>
-                            </div>
-                            <div class="col-6 col-md-3 p-0 d-flex justify-content-between align-items-center">
-                                <span class="fs875 txtg1">總計:</span>
-                                <span class="fs1125 fw700">$41.40</span>
-                            </div>
-                        </li>
+                        <div class="total">
+                            <li class="px-0 py-4 d-flex flex-column align-items-end cardgray">
+                                <div class="col-6 col-md-3 p-0 d-flex justify-content-between align-items-center">
+                                    <span class="fs875 txtg1">數量:</span>
+                                    <span id="tonum" class="fs1125 fw700">4</span>
+                                </div>
+                                <div class="col-6 col-md-3 p-0 d-flex justify-content-between align-items-center">
+                                    <span class="fs875 txtg1">小計:</span>
+                                    <span id="itprice" class="fs1125 fw700">$52.00</span>
+                                </div>
+                                <div class="col-6 col-md-3 p-0 d-flex justify-content-between align-items-center">
+                                    <span class="fs875 txtg1">運費:</span>
+                                    <span id="fee" class="fs1125 fw700">$9.90</span>
+                                </div>
+                                <div class="col-6 col-md-3 p-0 d-flex justify-content-between align-items-center">
+                                    <span class="fs875 txtg1">總計:</span>
+                                    <span id="toprice" class="fs1125 fw700">$61.90</span>
+                                </div>
+                            </li>
+                        </div>
 
                         <li
-                            class="list-group-item px-0 pt-4 pb-0 row d-flex justify-content-between align-items-center cardgray">
+                            class="row list-group-item px-0 pt-4 pb-0 d-flex justify-content-between align-items-center cardgray">
 
                             <div
                                 class="col-12 col-sm-6 d-flex justify-content-center justify-content-sm-start mb-3 mb-sm-0">
-                                <button type="button" class="btn btn-primary px-5 w-auto d-block"
-                                    style="height: 3rem; background-color: rgb(243, 244, 246); color: rgb(0,105,218); border: 2px rgb(0,105,218) solid;">上一步</button>
+                                <div class="d-flex align-items-center">
+                                    <img src="../img/arrow-4.svg" class="mr-2" style="height: 12.5px;width: 14px;">
+                                    返回購物
+                                </div>
                             </div>
 
-                            <div
-                                class="col-12 col-sm-6 d-flex justify-content-center justify-content-sm-end mb-3 mb-sm-0">
+                            <div class="col-12 col-sm-6 d-flex justify-content-center justify-content-sm-end">
                                 <button type="button" class="btn btn-primary px-5 w-auto d-block"
                                     style="height: 3rem;">下一步</button>
                             </div>
@@ -548,6 +477,130 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        var cartitem = document.querySelector('.cartitem')
+
+        var chickenmomo = {
+            name: 'Chicken Momo',
+            sname: 'cm',
+            pic: 'chickenmomo.jpg',
+            no: '#41551',
+            price: 10.5,
+        }
+
+        var spicymexicanpotatoes = {
+            name: 'Spicy Mexican Potatoes',
+            sname: 'smp',
+            pic: 'spicymexicanpotatoes.jpg',
+            no: '#66999',
+            price: 11.5,
+        }
+
+        var breakfast = {
+            name: 'Breakfast',
+            sname: 'bf',
+            pic: 'breakfast.jpg',
+            no: '#86577',
+            price: 9.5,
+        }
+
+        var pizzanutella = {
+            name: 'Pizza Nutella',
+            sname: 'pn',
+            pic: 'pizzanutella.jpg',
+            no: '#65877',
+            price: 20.5,
+        }
+
+        var items = [
+            chickenmomo, spicymexicanpotatoes, breakfast, pizzanutella
+        ]
+
+        items.forEach((item, index) => {
+            cartitem.innerHTML += `
+                <li class="border-bottom px-0 py-4 d-flex justify-content-between cardgray">
+                    <div class="d-flex align-items-center">
+                        <img class="rounded-circle mr-1" style="width: 3.75rem; height: 3.75rem;"
+                            src="../img/${item.pic}">
+                        <div class="ml-2">
+                            <div>${item.name}</div>
+                            <div class="fs75 font-weight-light txtg2">${item.no}</div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center pr-3">
+                        <div class="mr-3 d-flex">
+                            <span class="minus">-</span>
+                            <input type="text" value="1" class="inputnum border">
+                            <span class="plus">+</span>
+                        </div>
+                        <div class="price ml-3 fs75 pr-3" style="width:3.5rem;">$${item.price}0</div>
+                    </div>
+                </li>
+            `
+        });
+
+        plusall = document.querySelectorAll('.plus')
+        minusall = document.querySelectorAll('.minus')
+        numall = document.querySelectorAll('.inputnum')
+        priceall = document.querySelectorAll('.price')
+        tonum = document.querySelector('#tonum')
+        itprice = document.querySelector('#itprice')
+        toprice = document.querySelector('#toprice')
+
+        plusall.forEach((plus, index) => {
+
+            plus.addEventListener('click', function () {
+
+                numall[index].value++;
+                priceall[index].innerHTML = '$' + (items[index].price * numall[index].value).toFixed(2);
+                tonum.innerHTML = tonum.innerHTML * 1 + 1;
+
+                subtotal = 0
+
+                items.forEach((item, index) => {
+                    money = item.price * numall[index].value
+                    subtotal += money;
+                });
+
+                itprice.innerHTML = '$' + (subtotal).toFixed(2);
+                toprice.innerHTML = '$' + ((subtotal + 9.9).toFixed(2));
+
+            });
+
+
+        });
+
+        minusall.forEach((minus, index) => {
+            minus.addEventListener('click', function () {
+                if (numall[index].value < 1) {
+                    numall[index].value = 0
+                } else {
+
+                    numall[index].value--
+                    priceall[index].innerHTML = '$' + (items[index].price * numall[index].value).toFixed(2);
+                    tonum.innerHTML = tonum.innerHTML * 1 - 1;
+
+                    subtotal = 0
+
+                    items.forEach((item, index) => {
+                        money = item.price * numall[index].value
+                        subtotal += money;
+                    });
+
+                    itprice.innerHTML = '$' + (subtotal).toFixed(2);
+                    toprice.innerHTML = '$' + ((subtotal + 9.9).toFixed(2));
+                }
+            });
+        })
+
+
+
+
+
+
+
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
