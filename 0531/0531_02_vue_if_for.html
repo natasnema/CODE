@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0531_02_vue_if_for</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <p>發票選擇</p>
+
+        <input name="resp" v-model="resp" value="1" type="radio" id="normal">
+        <label for="normal">紙本發票</label>
+
+        <input name="resp" v-model="resp" value="2" type="radio" id="elect">
+        <label for="elect">載具</label>
+
+        <input name="resp" v-model="resp" value="3" type="radio" id="company">
+        <label for="company">統編</label>
+
+        <!-- v-show: 可根據 true/false 決定是否 "display" 於畫面中 -->
+        <!-- false 在 html 加上 display:none -->
+        <!-- <br>
+        <input type="text" placeholder="請輸入載具" v-if="show"> -->
+
+        <!-- v-if: 可以根據 true/false 決定是否 "render" 於畫面中 -->
+        <!-- false html 中不會出現該元素 -->
+        <!-- <br>
+        <input type="text" placeholder="請輸入統編" v-if="show"> -->
+
+        <!-- v-if=" 可以寫判斷式 只要結果為 true/false " -->
+        <br>
+        <input type="text" placeholder="請輸入載具" v-if="resp == 2">
+        <input type="text" placeholder="請輸入統編" v-if="resp == 3">
+
+        <!-- v-for 根據陣列長度 印出對應次數的元素 -->
+        <br>
+        <p>本期中獎號碼</p>
+        <div v-for="element in array">{{ element }}</div>
+
+        <!-- v-for 可以把物件 object 當成 陣列 array 操作 -->
+        <br>
+        <p>汽車資訊</p>
+        <div v-for="(element,key) in object">{{ key }} : {{ element }}</div>
+
+    </div>
+
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <script>
+        const app = Vue.createApp({
+
+            data() {
+                return {
+                    resp : 1,
+                    array : ['32220402','99194290','16525386','28467179','27854976'],
+                    object : {
+                        "車牌" : 'ABC-123',
+                        "價格" : '600000',
+                        "品牌" : 'TOYOTA',
+                        "顏色" : '白色',
+                    }
+                }
+            },
+
+            methods: {
+
+            },
+
+            mounted() {
+
+            },
+
+        })
+
+        app.mount('#app')
+
+    </script>
+
+</body>
+
+</html>

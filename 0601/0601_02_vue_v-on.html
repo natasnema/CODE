@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0601_02_vue_v-on</title>
+</head>
+
+
+<body>
+
+    <div id="app">
+        <!-- click事件 -->
+        <div v-on:click="beenClick">CLICK ME</div><br>
+        
+
+        <button v-on:click="count++">累加</button><br>
+        {{count}}<br>
+        <!-- change事件 -->
+        <input type="text" v-on:change="checkstring" v-model="word"><br>
+        <span v-if="result">請輸入至少十個文字</span>
+        
+    </div>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return {
+                    word : '',
+                    result : true,
+                    count : 0,
+                }
+            },
+            methods: {
+                beenClick : function() {
+                    console.log('lalala');
+                },
+
+                checkstring : function() {
+                    if (this.word.length < 10) {
+                        this.result = true
+                    } else {
+                        this.result = false
+                    }
+                }                
+            },
+            mounted() {
+                
+            },
+        })
+
+        app.mount('#app')
+    </script>
+    
+</body>
+</html>

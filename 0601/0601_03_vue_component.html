@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    button {
+        width: 100px;
+        height: 50px;
+        border-radius: 5px;
+        color: white;
+        display: block;
+    }
+
+    .red {
+        background-color: red;
+    }
+
+    .blue {
+        background-color: blue;
+    }
+
+    .green {
+        background-color: green;
+    }
+</style>
+<body>
+    
+    <div id="app">
+
+        <btn v-bind:type="'del'" v-bind:color="'red'"></btn>
+        <btn v-bind:type="'eddit'" v-bind:color="'green'"></btn>
+        <btn v-bind:type="'create'" v-bind:color="'blue'"></btn>
+
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script>
+
+        const app = Vue.createApp({
+
+        })
+
+        // component 元件的名稱必須為全小寫英文單字, 單字中間可以用dash( - )區隔
+        app.component('btn',{
+
+            template : `<button v-bind:class="color">{{ text }}</button>`,
+
+            data() {
+                return {
+                    text : '',
+                }
+            },
+
+            // vue 回傳值
+            props : ['type','color'],
+
+
+            methods: {
+
+                getTitle : function(){
+                    if (this.type == 'del') {
+                        this.text = '刪除'
+                    } else if (this.type == 'eddit') {
+                        this.text = '修改'
+                    } else {
+                        this.text = '新增'
+                    }
+                }                
+            },
+            mounted() {
+                this.getTitle()
+                
+            },
+        })
+        app.mount('#app')
+    </script>
+
+</body>
+</html>
