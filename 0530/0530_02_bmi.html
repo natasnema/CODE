@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0530_02_vue_bmi</title>
+</head>
+
+<body>
+
+    <div class="bmi">
+        <!-- vue 綁定屬性 -->
+        <!-- v-blind 單向綁定 (vue -> html) -->
+        <!-- v-model 表單綁定 (表單 <-> vue) -->
+        <p>身高 : <input v-model='height' type="text"> cm</p>
+        <p>體重 : <input v-model='weight' type="text"> kg</p>
+        <p v-bind:style="color">BMI1 : {{ bmi() }}</p>
+        <p>BMI2 : {{ weight / (height / 100) **2 }}</p>
+        <p>是否要減肥</p>
+        <input id="yes" type="radio" v-model="diet" value="1">
+        <label for="yes">是</label>
+        <input id="no" type="radio" v-model="diet" value="2">
+        <label for="no">否</label>
+
+        <p>{{ diet == 1 ? '自知之明':'墮落深淵'}}</p>
+        
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <script>
+        const bmivue = Vue.createApp({
+            data(){
+                return {
+                    height : '',
+                    weight : '',
+                    color : '',
+                    diet :'',
+                    }
+            },
+
+            methods: {
+                bmi : function(){
+
+                    const bmicalc = this.weight / (this.height / 100) **2
+
+                    if (bmicalc < 18) {
+                        this.color = 'color:blue;'
+                    } else if (bmicalc < 40) {
+                        this.color = 'color:yellow;'
+                    } else {
+                        this.color = 'color:red;'
+                    }
+                    
+                    return bmicalc.toFixed(2)     
+
+     
+                },
+            },
+
+            mounted() {
+                this.bmi()
+            },
+        })
+
+        bmivue.mount('.bmi')
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0px;
+            background-color: slategray;
+        }
+
+        form {
+            width: 500px;
+            margin: auto;
+            background-color: bisque;
+        }
+
+        h2 {
+            font-weight: bold;
+        }
+
+        .quest {
+            width: 100%;
+            border-bottom: 2px solid black;
+        }
+
+        .goods {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            border-bottom: 2px solid black;
+        }
+
+        .goods .merch-card {
+            width: 80%;
+            padding: 5px 20px;
+            border-radius: 20px;
+            border: 1px solid black;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .goods .merch-card .price {
+            display: flex;
+        }
+
+        .goods .merch-card .price input {
+            width: 100px;
+        }
+
+        .goods .merch-card .price .qty {
+            margin-right: auto;
+        }
+
+        .cal_total {
+            text-align: right;
+            padding: 0px 50px;
+        }
+
+        button {
+            margin: auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="" method="post" id="order_form">
+        <h2>購物車資訊</h2>
+        <div class="goods">
+            <div class="merch-card">
+                商品名稱: 漢堡 <br>
+                商品價格: 78元 <br>
+                <div class="price">
+                    購買數量: <input min="0" type="number" class="qty" v-model="hamburger">
+                    品項小記: {{ hamburger * 78 }}
+                </div>
+            </div>
+            <div class="merch-card">
+                商品名稱: 薯條(大) <br>
+                商品價格: 56元 <br>
+                <div class="price">
+                    購買數量: <input min="0" type="number" class="qty" v-model="fries">
+                    品項小記: {{ fries * 56 }}
+                </div>
+            </div>
+            <div class="merch-card">
+                商品名稱: 飲料 <br>
+                商品價格: 40元 <br>
+                <div class="price">
+                    購買數量: <input min="0" type="number" class="qty" v-model="drinks">
+                    品項小記: {{ drinks * 40 }}
+                </div>
+            </div>
+            <div class="merch-card">
+                商品名稱: 玉米濃湯(小) <br>
+                商品價格: 33元 <br>
+                <div class="price">
+                    購買數量: <input min="0" type="number" class="qty" v-model="soup">
+                    品項小記: {{ soup * 33 }}
+                </div>
+            </div>
+        </div>
+        <h2>加購選項</h2>
+        <div class="quest">
+            <span>請選擇要加購的項目
+            </span>
+            <div>
+                <input type="checkbox" value="1" id="add_01" v-model="addons">
+                <label for="add_01">塑膠袋 (+2元)</label>
+            </div>
+            <div>
+                <input type="checkbox" value="2" id="add_02" v-model="addons">
+                <label for="add_02">四塊雞塊 (+40元)</label>
+            </div>
+            <div>
+                <input type="checkbox" value="3" id="add_03" v-model="addons">
+                <label for="add_03">蘋果派 (+35元)</label>
+            </div>
+            <div>
+                <input type="checkbox" value="4" id="add_04" v-model="addons">
+                <label for="add_04">巧克力奶昔 (+60元)</label>
+            </div>
+
+            <div>
+                <div>請問這次的服務給您的滿意度</div>
+                <input type="radio" v-model="feedback" value="1" name="opt" id="not_happy">
+                <label for="not_happy">非常不滿意</label>
+
+                <input type="radio" v-model="feedback" value="2" name="opt" id="upsad">
+                <label for="upsad">不滿意</label>
+
+                <input type="radio" v-model="feedback" value="3" name="opt" id="hmm">
+                <label for="hmm">普通</label>
+
+                <input type="radio" v-model="feedback" value="4" name="opt" id="happy">
+                <label for="happy">滿意</label>
+
+                <input type="radio" v-model="feedback" value="5" name="opt" id="super_happy">
+                <label for="super_happy">非常滿意</label>
+            </div>
+            <!-- 如果 是不滿意  顯示"我們會盡力改進" -->
+            <!-- 如果 是普通  只顯示"感謝您的回饋" -->
+            <!-- 如果 是滿意  顯示"我們會持續保持" -->
+
+            <div>{{ reply }}</div>
+        </div>
+        <div class="cal_total">
+            小記: {{ subtotal() }}元<br>
+            運費: 60元<br>
+            總價: {{ subtotal() + 60 }}元<br>
+        </div>
+
+        <h2>訂單資訊</h2>
+
+        <p>您好, 感謝您的訂購, 請您送出前確認以下資訊</p>
+        <p>共訂購 {{ hamburger }}個漢堡, {{ fries }}份薯條, {{ drinks }}杯飲料, {{ soup }}杯玉米濃湯</p>
+        <p>{{ addons() }}</p>
+
+        <p>加上運費總價為 {{ subtotal() + 60 }} 元</p>
+    </form>
+
+
+
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+
+                    hamburger: 1,
+                    fries: 1,
+                    drinks: 1,
+                    soup: 1,
+                    
+                    // addon 陣列取值
+
+                    addons: [],
+                    addontxt: '未加購任何品項',
+
+                    feedback: 3,
+
+                }
+            },
+
+            methods: {
+                addons: function () {
+                    if (this.addon01 == false && this.addon02 == false && this.addon03 == false && this.addon0 == false) {
+
+                        return '你未加購任何品項'
+
+                    } else {
+
+                        let text = '您加購了：'
+
+                        if (this.addon01 == true) {
+                            text += '塑膠袋 (+2元)'
+                        }
+
+                        if (this.addon02 == true) {
+                            text += '四塊雞塊 (+40元)'
+                        }
+
+                        if (this.addon03 == true) {
+                            text += '蘋果派 (+35元)'
+                        }
+
+                        if (this.addon04 == true) {
+                            text += '巧克力奶昔 (+60元)'
+                        }
+
+                        return text
+                    }
+                },
+
+                subtotal: function () {
+
+                    let subprice = this.hamburger * 78 + this.fries * 56 + this.drinks * 40 + this.soup * 33
+
+                    if (this.addon01 == true) {
+                        subprice += 2
+                    }
+                    if (this.addon02 == true) {
+                        subprice += 40
+                    }
+                    if (this.addon03 == true) {
+                        subprice += 35
+                    }
+                    if (this.addon04 == true) {
+                        subprice += 60
+                    }
+
+                    return subprice
+
+                },
+                
+                reply : function(){
+                    if (this.feedback < 3) {
+                        return '我們會盡力改進'
+                    } else if (this.feedback == 3) {
+                        return '感謝您的回饋'
+                    } else {
+                        return '我們會持續保持'
+                    }                    
+                },
+
+            },
+
+            
+
+            mounted() {
+
+            },
+        })
+
+        app.mount('#order_form')
+    </script>
+
+
+</body>
+
+</html>
