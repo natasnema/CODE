@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0531_01_vue_cart</title>
+    <style>
+        body {
+            margin: 0px;
+            background-color: slategray;
+        }
+
+        form {
+            width: 500px;
+            margin: auto;
+            background-color: bisque;
+        }
+
+        h2 {
+            font-weight: bold;
+        }
+
+        .quest {
+            width: 100%;
+            border-bottom: 2px solid black;
+        }
+
+        .goods {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            border-bottom: 2px solid black;
+        }
+
+        .goods .merch-card {
+            width: 80%;
+            padding: 5px 20px;
+            border-radius: 20px;
+            border: 1px solid black;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .goods .merch-card .price {
+            display: flex;
+        }
+
+        .goods .merch-card .price input {
+            width: 100px;
+        }
+
+        .goods .merch-card .price .qty {
+            margin-right: auto;
+        }
+
+        .cal_total {
+            text-align: right;
+            padding: 0px 50px;
+        }
+
+        button {
+            margin: auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="" method="post" id="order_form">
+        <h2>購物車資訊</h2>
+        <div class="goods">
+
+            <div v-for="item,index in cartlist" class="merch-card">
+                商品名稱: {{item.productName}} <br>
+                商品價格: {{item.price}}元 <br>
+                <div class="price">
+                    購買數量: <input min="0" type="number" class="qty" v-model="item.qty">
+                    品項小記: {{ item.price * item.qty }}
+                </div>
+            </div>
+
+            <!-- 
+            <div class="merch-card">
+                商品名稱: 漢堡 <br>
+                商品價格: 78元 <br>
+                <div class="price">
+                    購買數量: <input min="0" type="number" class="qty" v-model="hamburger">
+                    品項小記: {{ hamburger * 78 }}
+                </div>
+            </div>
+
+            <div class="merch-card">
+                商品名稱: 薯條(大) <br>
+                商品價格: 56元 <br>
+                <div class="price">
+                    購買數量: <input min="0" type="number" class="qty" v-model="fries">
+                    品項小記: {{ fries * 56 }}
+                </div>
+            </div>
+
+            <div class="merch-card">
+                商品名稱: 飲料 <br>
+                商品價格: 40元 <br>
+                <div class="price">
+                    購買數量: <input min="0" type="number" class="qty" v-model="drinks">
+                    品項小記: {{ drinks * 40 }}
+                </div>
+            </div>
+
+            <div class="merch-card">
+                商品名稱: 玉米濃湯(小) <br>
+                商品價格: 33元 <br>
+                <div class="price">
+                    購買數量: <input min="0" type="number" class="qty" v-model="soup">
+                    品項小記: {{ soup * 33 }}
+                </div>
+            </div>
+         -->
+        </div>
+        <h2>加購選項</h2>
+        <div class="quest">
+            <span>請選擇要加購的項目
+            </span>
+
+
+            <div v-for="item,index in addlist">
+                <input type="checkbox" v-bind:value="index" v-bind:id="'add'+index" v-model="addon">
+                <label v-bind:for="'add'+index">{{item.title}}</label>
+            </div>
+
+
+            <!-- 
+            <div>
+                <input type="checkbox" value="1" id="add_01" v-model="addon">
+                <label for="add_01">塑膠袋 (+2元)</label>
+            </div>
+
+            <div>
+                <input type="checkbox" value="2" id="add_02" v-model="addon">
+                <label for="add_02">四塊雞塊 (+40元)</label>
+            </div>
+
+            <div>
+                <input type="checkbox" value="3" id="add_03" v-model="addon">
+                <label for="add_03">蘋果派 (+35元)</label>
+            </div>
+
+            <div>
+                <input type="checkbox" value="4" id="add_04" v-model="addon">
+                <label for="add_04">巧克力奶昔 (+60元)</label>
+            </div>
+             -->
+             <my-option>
+
+             </my-option>
+            
+        </div>
+        <div class="cal_total">
+            小記: {{ subtotal() }}元<br>
+            運費: 60元<br>
+            總價: {{ subtotal() + 60 }}元<br>
+        </div>
+
+        <h2>訂單資訊</h2>
+
+        <p>您好, 感謝您的訂購, 請您送出前確認以下資訊</p>
+        <p>共訂購
+            <br>
+            <span v-for="item in cartlist">
+                {{item.productName + item.qty}}份<br>
+            </span>
+        </p>
+        <p>{{ addons() }}</p>
+
+        <p>加上運費總價為 {{ subtotal() + 60 }} 元</p>
+    </form>
+
+
+
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+
+                    hamburger: 1,
+                    fries: 1,
+                    drinks: 1,
+                    soup: 1,
+
+                    // addon 陣列取值
+
+                    // 加購項目
+                    addon: [],
+
+                    // 加購清單
+                    addlist: [],
+
+                    // 購買清單
+                    cartlist: [],
+
+                    // 滿意度
+                    feedback: 3,
+
+                }
+            },
+
+            methods: {
+                addons: function () {
+                    if (this.addon.length < 1) {
+
+                        return '你未加購任何品項'
+
+                    } else {
+
+                        let text = '您加購了：'
+
+                        this.addon.forEach(index => {
+                            text += this.addlist[index].title
+                        })
+
+                        // this.addlist.forEach((item, index) => {
+                        //     if (this.addon.includes(index)) {
+                        //         text += item.title
+                        //     }
+                        // })
+
+                        // if (this.addon.includes('1')) {
+                        //     text += '塑膠袋 (+2元)'
+                        // }
+
+                        // if (this.addon.includes('2')) {
+                        //     text += '四塊雞塊 (+40元)'
+                        // }
+
+                        // if (this.addon.includes('3')) {
+                        //     text += '蘋果派 (+35元)'
+                        // }
+
+                        // if (this.addon.includes('4')) {
+                        //     text += '巧克力奶昔 (+60元)'
+                        // }
+
+                        return text
+                    }
+                },
+
+                subtotal: function () {
+
+                    let subprice = 0
+                    this.cartlist.forEach(element => {
+                        subprice += element.qty * element.price
+                    })
+
+                    this.addon.forEach(index => {
+                        subprice += parseInt(this.addlist[index].price)
+                    })
+
+                    // this.addlist.forEach((item,index) => {
+                    //     if (this.addon.includes(index)){
+                    //         subprice += Math.round(item.price)
+                    //     }                        
+                    // })
+
+
+                    // if (this.addon.includes('1')) {
+                    //     subprice += 2
+                    // }
+                    // if (this.addon.includes('2')) {
+                    //     subprice += 40
+                    // }
+                    // if (this.addon.includes('3')) {
+                    //     subprice += 35
+                    // }
+                    // if (this.addon.includes('4')) {
+                    //     subprice += 60
+                    // }
+
+                    return subprice
+
+                },
+
+                // reply: function () {
+                //     if (this.feedback < 3) {
+                //         return '我們會盡力改進'
+                //     } else if (this.feedback == 3) {
+                //         return '感謝您的回饋'
+                //     } else {
+                //         return '我們會持續保持'
+                //     }
+                // },
+
+                // 製作 json
+                // async await 同步呼叫
+
+                getAddonList: async function () {
+                    const result = await fetch('./addon.json')
+                    const addonjson = await result.json()
+                    this.addlist = addonjson
+                },
+
+                getCartList: async function () {
+                    const response = await fetch('./shoppingList.json')
+                    const cartjson = await response.json()
+                    this.cartlist = cartjson
+                },
+            },
+
+            mounted() {
+                this.getAddonList()
+                this.getCartList()
+            },
+        })
+
+        // component 元件的名稱必須為全小寫英文單字, 單字中間可以用dash( - )區隔
+        app.component('my-option', {
+            template: `
+            <div>
+                <div>請問這次的服務給您的滿意度</div>
+                <input type="radio" value="1" name="opt" id="not_happy" v-model="opinions">
+                <label for="not_happy">非常不滿意</label>
+
+                <input type="radio" value="2" name="opt" id="upsad" v-model="opinions">
+                <label for="upsad">不滿意</label>
+
+                <input type="radio" value="3" name="opt" id="hmm" v-model="opinions">
+                <label for="hmm">普通</label>
+
+                <input type="radio" value="4" name="opt" id="happy" v-model="opinions">
+                <label for="happy">滿意</label>
+
+                <input type="radio" value="5" name="opt" id="super_happy" v-model="opinions">
+                <label for="super_happy">非常滿意</label>
+            </div>
+
+            <div>{{ reply() }}</div>`
+            ,
+            data(){
+                return {
+                    opinions : '',
+                }
+            },
+            methods : {
+                reply: function () {
+                    if (this.opinions < 3) {
+                        return '我們會盡力改進'
+                    } else if (this.opinions == 3) {
+                        return '感謝您的回饋'
+                    } else {
+                        return '我們會持續保持'
+                    }
+                },
+            },
+            mounted(){
+
+            }
+
+        })
+
+
+
+        app.mount('#order_form')
+    </script>
+
+
+</body>
+
+</html>

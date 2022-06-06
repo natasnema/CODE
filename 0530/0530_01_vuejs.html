@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>0530_01_vuejs</title>
+</head>
+
+
+
+<body>
+
+  <!-- https://book.vue.tw/ -->
+  <!-- https://cn.vuejs.org/ -->
+
+
+
+  <div id="app">
+    <!-- {{}} 樣板語法 可以使用一些運算 -->
+    <p>HELLO WORLD {{ X / 2 }}</p>
+    <p>{{ getZ() }}</p>
+    <p>{{ array }}</p>
+  </div>
+
+
+
+  <script src="https://unpkg.com/vue@3"></script>
+
+  <script>
+
+      // 宣告一個 vue
+    const myvue = Vue.createApp({
+
+      // vue 宣告變數 X = A
+      data() {
+        return {
+          X: 10 ,
+          array:['aaa','bbb','ccc']
+        }
+      },
+
+      // vue 宣告 function Y()
+      methods: {
+        Y : function(){
+
+          // 在 vue 中要使用自己的變數前要加 this          
+          this.X = 100
+        },
+
+      // vue 宣告 function getZ()
+        getZ : function(){
+
+          // return 將值回傳回程式進行操作
+          return 150
+        }
+      },
+
+      // 開啟網頁直接執行 (呼叫)
+      mounted() {
+        console.log('我的VUE輸出了')
+        console.log(this.getZ())
+        this.Y()    
+      },
+    })
+
+    myvue.mount('#app')
+
+    // 宣告變數 JS 寫法
+    // var X = 10
+    // const output = document.querySelector('#app')
+    // output.innerHTML = X
+
+    // 宣告function與執行function JS 寫法
+    // function Y(){
+    //     X = 100
+    // }
+
+    // function getName(){
+    //   return 'JAX'
+    // }
+    // console.log();
+
+    // Y()
+
+  </script>
+
+
+
+</body>
+
+</html>
